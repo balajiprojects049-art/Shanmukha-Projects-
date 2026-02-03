@@ -83,6 +83,35 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Leadership Banner Section */}
+            <section className="py-12 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="relative overflow-hidden rounded-sm shadow-xl border-4 border-white"
+                    >
+                        <img
+                            src="/images/leadership-banner.png"
+                            alt="Leadership Banner - PM Narendra Modi & CM N. Chandrababu Naidu"
+                            className="w-full h-auto object-cover"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6 md:p-10">
+                            <div className="max-w-3xl">
+                                <h2 className="text-white text-xl md:text-3xl font-black uppercase tracking-tight mb-2">
+                                    Collaborating for a <span className="text-[#a5d63f]">Viksit Bharat</span> & <span className="text-orange-400">Swarna Andhra Pradesh</span>
+                                </h2>
+                                <p className="text-gray-200 text-sm md:text-base font-medium leading-relaxed">
+                                    Shanmukha Projects is committed to implementing the visionary schemes of the Central and State governments, bridging the gap between policy and grassroots development.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* About Overview - Formal Layout */}
             <section className="py-16 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
