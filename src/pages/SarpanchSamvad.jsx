@@ -1,8 +1,10 @@
 import React from 'react';
 import { Users, Smartphone, Award, MessagesSquare, Share2, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const SarpanchSamvad = () => {
+    const { t } = useLanguage();
     return (
         <div className="bg-[#f8fafc] min-h-screen font-sans">
             {/* Page Header - ZED Theme */}
@@ -10,11 +12,11 @@ const SarpanchSamvad = () => {
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="inline-block bg-white text-[#45b1b8] px-4 py-1 font-black text-xs uppercase tracking-widest mb-6 border-l-4 border-[#a5d63f]">
-                        Quality Council of India (QCI) Initiative
+                        {t('sarpanch_qci_badge')}
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-4">Sarpanch Samvaad</h1>
+                    <h1 className="text-4xl md:text-5xl font-black mb-4">{t('sarpanch_title')}</h1>
                     <p className="text-xl md:text-2xl opacity-95 max-w-3xl leading-relaxed border-l-4 border-white pl-4 font-medium">
-                        Connecting 2.5 Lakh Sarpanchs across India on a single digital platform to foster 'Quality Villages'.
+                        {t('sarpanch_subtitle')}
                     </p>
                 </div>
             </div>
@@ -25,9 +27,9 @@ const SarpanchSamvad = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-3xl font-bold text-[#1a202c] mb-6 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-tight">About the Platform</h2>
+                            <h2 className="text-3xl font-bold text-[#1a202c] mb-6 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-tight">{t('sarpanch_about_title')}</h2>
                             <p className="text-lg text-gray-700 leading-relaxed text-justify mb-6">
-                                <strong>Sarpanch Samvaad</strong> is an innovative mobile application launched by the Quality Council of India (QCI). It serves as a comprehensive networking and capacity-building platform for Sarpanchs (Village Heads) across the nation.
+                                {t('sarpanch_about_desc')}
                             </p>
                         </div>
 
@@ -72,7 +74,7 @@ const SarpanchSamvad = () => {
                 {/* Features Grid */}
                 <div className="mb-24">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-black text-[#1a202c] uppercase tracking-wide">Key Objectives</h2>
+                        <h2 className="text-3xl font-black text-[#1a202c] uppercase tracking-wide">{t('sarpanch_features_title')}</h2>
                         <div className="w-20 h-1 bg-[#a5d63f] mx-auto mt-4"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -97,7 +99,7 @@ const SarpanchSamvad = () => {
                 <div className="bg-[#1a5d62] rounded-sm shadow-2xl overflow-hidden flex flex-col md:flex-row mb-24">
                     <div className="bg-[#a5d63f] p-10 md:w-1/3 flex flex-col justify-center items-center text-center">
                         <Award size={100} className="mb-6 text-[#1a5d62]" />
-                        <h3 className="text-2xl font-black text-[#1a5d62] uppercase tracking-tighter">Pride of Andhra Pradesh</h3>
+                        <h3 className="text-2xl font-black text-[#1a5d62] uppercase tracking-tighter">{t('sarpanch_andhra_title')}</h3>
                     </div>
                     <div className="p-10 md:w-2/3 flex flex-col justify-center text-white">
                         <p className="text-xl md:text-2xl leading-relaxed italic font-medium">
@@ -132,7 +134,7 @@ const SarpanchSamvad = () => {
 
                 <div className="text-center">
                     <Link to="/contact" className="inline-block px-10 py-4 bg-[#45b1b8] text-white font-black uppercase tracking-widest hover:bg-[#1a5d62] rounded-sm transition-all shadow-xl">
-                        Contact Support Team
+                        {t('sarpanch_btn_support')}
                     </Link>
                 </div>
             </div>

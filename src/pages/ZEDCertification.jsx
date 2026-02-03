@@ -1,8 +1,10 @@
 import React from 'react';
-import { Check, Award, TrendingUp, Users, ShieldCheck, Globe, Star } from 'lucide-react';
+import { Check, Award, TrendingUp, Users, ShieldCheck, Globe, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const ZEDCertification = () => {
+    const { t } = useLanguage();
     return (
         <div className="bg-gray-50 min-h-screen font-sans">
             {/* Page Header - ZED Theme */}
@@ -10,11 +12,11 @@ const ZEDCertification = () => {
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <div className="inline-block bg-white text-[#45b1b8] px-4 py-1 rounded-sm text-xs font-black uppercase tracking-widest mb-6 border-l-4 border-[#a5d63f]">
-                        Official Ministry of MSME Scheme
+                        {t('zed_official_badge')}
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">MSME ZED Certification</h1>
+                    <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">{t('zed_title')}</h1>
                     <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed font-medium">
-                        "Zero Defect Zero Effect" — Empowering Indian MSMEs for Global Quality Standards and Sustainable Growth.
+                        {t('zed_subtitle')}
                     </p>
                 </div>
             </div>
@@ -23,13 +25,12 @@ const ZEDCertification = () => {
                 {/* Intro Section */}
                 <div className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="text-3xl font-bold text-[#1a202c] mb-8 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-tight">What is ZED?</h2>
+                        <h2 className="text-3xl font-bold text-[#1a202c] mb-8 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-tight">{t('zed_what')}</h2>
                         <p className="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
-                            The <strong>ZED (Zero Defect Zero Effect)</strong> scheme is a flagship initiative by the Ministry of MSME, Government of India.
-                            It aims to create a culture of world-class manufacturing where quality is compromised at no stage (<span className="text-[#45b1b8] font-bold">Zero Defect</span>) and operations have minimal impact on our environment (<span className="text-[#a5d63f] font-bold">Zero Effect</span>).
+                            {t('zed_desc1')}
                         </p>
                         <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                            As official facilitators, Shanmukha Projects helps your business adopt these standards, improving resource efficiency and positioning you as a leader in global supply chains.
+                            {t('zed_desc2')}
                         </p>
                     </div>
                     <div className="rounded-sm overflow-hidden shadow-xl border-8 border-white transform hover:scale-[1.02] transition-transform">
@@ -40,7 +41,7 @@ const ZEDCertification = () => {
                 {/* Benefits Grid */}
                 <div className="mb-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-[#1a202c] uppercase tracking-wide">Key Benefits for Your Business</h2>
+                        <h2 className="text-3xl font-bold text-[#1a202c] uppercase tracking-wide">{t('zed_benefits')}</h2>
                         <div className="w-24 h-1 bg-[#a5d63f] mx-auto mt-4"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -63,7 +64,7 @@ const ZEDCertification = () => {
                 {/* Levels Section */}
                 <div className="mb-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-[#1a202c] uppercase tracking-wide">Certification Levels</h2>
+                        <h2 className="text-3xl font-bold text-[#1a202c] uppercase tracking-wide">{t('zed_levels')}</h2>
                         <p className="text-gray-500 mt-2">Phased approach to quality excellence</p>
                     </div>
 
@@ -101,9 +102,9 @@ const ZEDCertification = () => {
                         <Users size={40} />
                     </div>
                     <div>
-                        <h3 className="text-2xl font-bold text-[#45b1b8] mb-3 uppercase tracking-tight">Support for Women Entrepreneurs</h3>
+                        <h3 className="text-2xl font-bold text-[#45b1b8] mb-3 uppercase tracking-tight">{t('zed_women_title')}</h3>
                         <p className="text-gray-800 text-lg leading-relaxed">
-                            Women-owned MSMEs receive <span className="font-black text-[#b91c1c]">Additional 10% Subsidy</span> and exclusive handholding support. We are committed to fostering women leadership in the manufacturing sector across Andhra Pradesh.
+                            {t('zed_women_desc')}
                         </p>
                     </div>
                 </div>
@@ -118,11 +119,11 @@ const ZEDCertification = () => {
                     <div className="bg-white border border-gray-100 rounded-sm shadow-lg overflow-hidden flex flex-col md:flex-row group">
                         <div className="md:w-1/3 bg-[#45b1b8] p-10 flex flex-col justify-center items-center text-center text-white">
                             <Users size={60} className="mb-4" />
-                            <h3 className="text-xl font-black uppercase tracking-tighter">Sarpanch Samvaad</h3>
+                            <h3 className="text-xl font-black uppercase tracking-tighter">{t('sarpanch_title')}</h3>
                         </div>
                         <div className="p-10 md:flex-1 flex flex-col justify-center">
                             <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                                Beyond manufacturing quality, we also facilitate the <strong>Sarpanch Samvaad</strong> platform—a digital community of 2.5 lakh grassroots leaders committed to village development and quality governance.
+                                {t('sarpanch_subtitle')}
                             </p>
                             <Link to="/sarpanch-samvad" className="inline-flex items-center text-[#45b1b8] font-black uppercase tracking-widest text-sm hover:underline">
                                 Learn about Sarpanch Samvaad <ArrowRight className="ml-2 h-4 w-4" />
@@ -159,7 +160,7 @@ const ZEDCertification = () => {
 
                         <div className="text-center">
                             <Link to="/contact" className="inline-block bg-white text-[#1a5d62] font-black px-10 py-4 rounded-sm hover:bg-[#a5d63f] hover:text-white transition-all duration-300 uppercase tracking-widest text-sm shadow-xl">
-                                Book a Free Consultation
+                                {t('zed_btn_consult')}
                             </Link>
                         </div>
                     </div>

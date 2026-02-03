@@ -1,7 +1,9 @@
 import React from 'react';
 import { Calendar, MapPin, Users, Award, Mic, Target, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Conclave2025 = () => {
+    const { t } = useLanguage();
     return (
         <div className="bg-[#f8fafc] min-h-screen font-sans">
             {/* Header / Hero Section */}
@@ -10,13 +12,13 @@ const Conclave2025 = () => {
                     <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
                         <div className="flex-1">
                             <div className="inline-block bg-white text-[#45b1b8] px-3 py-1 mb-4 rounded-sm text-xs font-bold uppercase tracking-wider border-l-4 border-[#138808]">
-                                Press Information Bureau (PIB) Release
+                                {t('conclave_badge')}
                             </div>
                             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                                Union Minister of Jal Shakti Shri C R Patil inaugurates the Sarpanch Samvaad National Quality Conclave
+                                {t('conclave_main_title')}
                             </h1>
                             <p className="text-xl md:text-2xl text-blue-50 mb-6 italic border-l-4 border-[#a5d63f] pl-6 py-2">
-                                "Empowering grassroots leadership for Viksit Bharat 2047"
+                                {t('conclave_quote')}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-blue-100 mt-4 text-sm md:text-base font-medium">
                                 <div className="flex items-center gap-2">

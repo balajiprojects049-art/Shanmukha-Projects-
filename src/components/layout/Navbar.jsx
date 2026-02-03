@@ -61,8 +61,8 @@ const Navbar = () => {
     return (
         <header className="w-full flex-col font-sans relative z-50">
             {/* 1. GOV TOP BAR (Accessibility & Utils) */}
-            <div className="bg-[#f0f0f0] border-b border-gray-300 text-[#333333] py-1 px-2 text-[11px] md:text-xs">
-                <div className="max-w-7xl mx-auto flex justify-end items-center gap-4 split-nav">
+            <div className="bg-[#f0f0f0] border-b border-gray-300 text-[#333333] py-1 px-2 text-[10px] md:text-xs overflow-x-auto">
+                <div className="max-w-7xl mx-auto flex justify-between md:justify-end items-center gap-4 min-w-max md:min-w-0">
                     <div className="hidden md:flex items-center gap-3 border-r border-gray-400 pr-3">
                         <a href="#main-content" className="hover:underline cursor-pointer font-medium">Skip to Main Content</a>
                         <span className="text-gray-400">|</span>
@@ -102,46 +102,48 @@ const Navbar = () => {
 
             {/* 2. BRANDING HEADER (White Background, Logos) */}
             <div className="bg-white shadow-sm py-2 md:py-4 relative z-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                     {/* Main Logo & Title */}
-                    <Link to="/" className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
-                        <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
+                    <Link to="/" className="flex items-center gap-3 md:gap-4 flex-grow pr-10 md:pr-0">
+                        <div className="w-12 h-12 md:w-24 md:h-24 shrink-0 flex items-center justify-center">
                             <img src="/images/logo.png" alt="Shanmukha Projects Logo" className="w-full h-full object-contain" />
                         </div>
-                        <div className="flex flex-col text-center md:text-left">
-                            <h1 className="font-bold text-[#003366] text-lg md:text-2xl leading-tight uppercase tracking-tight">
+                        <div className="flex flex-col text-left">
+                            <h1 className="font-bold text-[#003366] text-sm md:text-2xl leading-tight uppercase tracking-tight">
                                 Shanmukha Projects
                             </h1>
-                            <p className="text-xs md:text-sm text-gray-800 font-semibold max-w-md">
+                            <p className="text-[10px] md:text-sm text-gray-800 font-semibold max-w-xs md:max-w-md">
                                 State & Central Government Contract & Project Services
                             </p>
-                            <p className="text-[10px] md:text-xs text-green-700 font-medium mt-1">
+                            <p className="hidden md:block text-[10px] md:text-xs text-green-700 font-medium mt-1">
                                 An Authorized Facilitator for MSME Schemes (UDYAM-AP-13-0078844)
                             </p>
                         </div>
                     </Link>
 
-                    {/* Partner Emblems (Right Side) */}
+                    {/* Partner Emblems (Right Side) - Hidden on mobile/tablet */}
                     <div className="hidden lg:flex items-center gap-6 grayscale opacity-90">
-                        {/* Placeholder for Emblems - simulating the 'Azadi Ka Amrit' / 'G20' / 'Swachh Bharat' look often seen */}
                         <div className="flex flex-col items-center">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Government_of_India_logo.svg/200px-Government_of_India_logo.svg.png" alt="Govt Emblem" className="h-14 w-auto object-contain mb-1" />
                             <span className="text-[10px] font-bold text-gray-600">Facilitator</span>
                         </div>
                         <div className="h-12 w-[1px] bg-gray-300"></div>
                         <div className="flex flex-col items-center">
-                            {/* We don't have these images, using text styling to mimic standard gov headers */}
                             <span className="text-xl font-black text-orange-500 tracking-tighter">MSME</span>
                             <span className="text-[10px] uppercase font-bold text-green-700">ZED Certification</span>
                         </div>
                     </div>
 
                     {/* Mobile Hamburger */}
-                    <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
+                    <div className="md:hidden">
                         <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-700">
-                            {isOpen ? <X size={32} /> : <Menu size={32} />}
+                            {isOpen ? <X size={28} /> : <Menu size={28} />}
                         </button>
                     </div>
+                </div>
+                {/* Mobile Small Badge for MSME below header */}
+                <div className="md:hidden px-4 py-1 bg-gray-50 border-t border-gray-100 italic text-[9px] text-center text-green-700 font-medium">
+                    An Authorized Facilitator for MSME Schemes (UDYAM-AP-13-0078844)
                 </div>
             </div>
 

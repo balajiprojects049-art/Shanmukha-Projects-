@@ -25,15 +25,15 @@ const Home = () => {
             {/* Announcement / Latest News Strip */}
             <div className="bg-[#3e9fa3] text-white py-2 border-b-4 border-[#a5d63f]">
                 <div className="max-w-7xl mx-auto px-4 flex items-center">
-                    <div className="bg-[#b91c1c] text-white px-4 py-1 text-xs font-bold uppercase shrink-0 rounded-sm flex items-center gap-2">
-                        <span>New</span> <span className="animate-pulse w-2 h-2 bg-white rounded-full"></span>
+                    <div className="bg-[#b91c1c] text-white px-2 md:px-4 py-0.5 md:py-1 text-[10px] md:text-xs font-bold uppercase shrink-0 rounded-sm flex items-center gap-1 md:gap-2">
+                        <span>New</span> <span className="animate-pulse w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full"></span>
                     </div>
-                    <div className="overflow-hidden whitespace-nowrap w-full ml-4 font-bold text-sm">
+                    <div className="overflow-hidden whitespace-nowrap w-full ml-2 md:ml-4 font-bold text-[10px] md:text-sm">
                         <div className="inline-block animate-marquee uppercase tracking-wide">
-                            <span className="mx-8">🌟 Sarpanch Samvaad National Quality Conclave held at New Delhi </span>
-                            <span className="mx-8 text-yellow-300">📢 60,000+ Sarpanchs onboarded on Sarpanch Samvaad App</span>
-                            <span className="mx-8">📢 Applications open for ZED Certification Level 1 (Bronze)</span>
-                            <span className="mx-8 text-yellow-300">📢 Special subsidy available for Women Entrepreneurs in AP</span>
+                            <span className="mx-4 md:mx-8">🌟 Sarpanch Samvaad National Quality Conclave held at New Delhi </span>
+                            <span className="mx-4 md:mx-8 text-yellow-300">📢 60,000+ Sarpanchs onboarded on Sarpanch Samvaad App</span>
+                            <span className="mx-4 md:mx-8">📢 Applications open for ZED Certification Level 1 (Bronze)</span>
+                            <span className="mx-4 md:mx-8 text-yellow-300">📢 Special subsidy available for Women Entrepreneurs in AP</span>
                         </div>
                     </div>
                 </div>
@@ -44,17 +44,17 @@ const Home = () => {
                 <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center z-0"></div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-24">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-4xl bg-[#45b1b8]/90 p-6 md:p-8 rounded-sm shadow-lg border-t-4 border-[#a5d63f]"
+                        className="max-w-4xl bg-[#45b1b8]/90 p-5 md:p-8 rounded-sm shadow-lg border-t-4 border-[#a5d63f]"
                     >
-                        <div className="inline-block px-3 py-1 bg-white text-[#003366] font-bold text-xs uppercase tracking-wider mb-4">
+                        <div className="inline-block px-2 py-0.5 bg-white text-[#003366] font-bold text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4">
                             {t('hero_badge')}
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+                        <h1 className="text-2xl md:text-5xl font-bold leading-tight mb-3 md:mb-4">
                             {t('hero_title').split('ZED Certification').map((part, i, arr) => (
                                 <React.Fragment key={i}>
                                     {part}
@@ -62,15 +62,15 @@ const Home = () => {
                                 </React.Fragment>
                             ))}
                         </h1>
-                        <p className="text-lg text-gray-200 mb-8 leading-relaxed border-l-4 border-[#a5d63f] pl-4">
+                        <p className="text-sm md:text-lg text-gray-100 mb-6 md:mb-8 leading-relaxed border-l-4 border-[#a5d63f] pl-3 md:pl-4">
                             {t('hero_desc')}
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Link to="/zed-certification" className="inline-flex items-center justify-center px-6 py-3 text-base font-extrabold text-[#1a202c] bg-[#a5d63f] hover:bg-[#94c135] transition-colors rounded-sm shadow-md">
+                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                            <Link to="/zed-certification" className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-extrabold text-[#1a202c] bg-[#a5d63f] hover:bg-[#94c135] transition-colors rounded-sm shadow-md">
                                 {t('hero_btn_zed')}
-                                <ArrowRight className="ml-2 h-5 w-5" />
+                                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                             </Link>
-                            <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-[#45b1b8] bg-white hover:bg-gray-100 border border-white transition-colors rounded-sm">
+                            <Link to="/contact" className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-bold text-[#45b1b8] bg-white hover:bg-gray-100 border border-white transition-colors rounded-sm">
                                 {t('hero_btn_contact')}
                             </Link>
                         </div>
