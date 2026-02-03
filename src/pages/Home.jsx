@@ -1,14 +1,27 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle, Award, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Home = () => {
+    const fadeIn = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.6 }
+    };
+
+    const staggerContainer = {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        viewport: { once: true },
+        transition: { staggerChildren: 0.2 }
+    };
     return (
         <div className="bg-gray-50">
             {/* Hero Section */}
             {/* Announcement / Latest News Strip */}
-            <div className="bg-[#00284d] text-white py-2 border-b-4 border-orange-500">
+            <div className="bg-[#3e9fa3] text-white py-2 border-b-4 border-[#a5d63f]">
                 <div className="max-w-7xl mx-auto px-4 flex items-center">
                     <div className="bg-[#b91c1c] text-white px-4 py-1 text-xs font-bold uppercase shrink-0 rounded-sm flex items-center gap-2">
                         <span>New</span> <span className="animate-pulse w-2 h-2 bg-white rounded-full"></span>
@@ -30,26 +43,31 @@ const Home = () => {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center z-0"></div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-                    <div className="max-w-4xl bg-[#003366]/90 p-6 md:p-8 rounded-sm shadow-lg border-t-4 border-[#ff9933]">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-4xl bg-[#45b1b8]/90 p-6 md:p-8 rounded-sm shadow-lg border-t-4 border-[#a5d63f]"
+                    >
                         <div className="inline-block px-3 py-1 bg-white text-[#003366] font-bold text-xs uppercase tracking-wider mb-4">
                             Empowering MSMEs in Andhra Pradesh
                         </div>
                         <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-                            Driving Growth with <span className="text-[#ff9933]">ZED Certification</span> & Government Projects
+                            Driving Growth with <span className="text-[#a5d63f]">ZED Certification</span> & Government Projects
                         </h1>
-                        <p className="text-lg text-gray-200 mb-8 leading-relaxed border-l-4 border-[#ff9933] pl-4">
+                        <p className="text-lg text-gray-200 mb-8 leading-relaxed border-l-4 border-[#a5d63f] pl-4">
                             Shanmukha Projects is a trusted partner for MSME ZED Certification (Zero Defect Zero Effect) and government contract execution. We bridge the gap between policy and practice.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Link to="/zed-certification" className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-[#138808] hover:bg-green-700 transition-colors rounded-sm shadow-md">
+                            <Link to="/zed-certification" className="inline-flex items-center justify-center px-6 py-3 text-base font-extrabold text-[#1a202c] bg-[#a5d63f] hover:bg-[#94c135] transition-colors rounded-sm shadow-md">
                                 ZED Registration
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
-                            <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-[#003366] bg-white hover:bg-gray-100 border border-white transition-colors rounded-sm">
+                            <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-[#45b1b8] bg-white hover:bg-gray-100 border border-white transition-colors rounded-sm">
                                 Contact Us
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -57,23 +75,23 @@ const Home = () => {
             <div className="bg-white border-b border-gray-200 py-6">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-between items-center gap-6 opacity-80">
-                        <div className="font-bold text-lg text-[#003366] flex items-center gap-2"><Award className="text-[#003366]" /> Quality Council of India</div>
-                        <div className="font-bold text-lg text-[#003366] flex items-center gap-2"><Award className="text-[#138808]" /> MSME ZED</div>
-                        <div className="font-bold text-lg text-[#003366] flex items-center gap-2"><Award className="text-[#ff9933]" /> AZQDC</div>
-                        <div className="font-bold text-lg text-[#003366] flex items-center gap-2"><Award className="text-blue-600" /> NextGen Global</div>
+                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#45b1b8]" /> Quality Council of India</div>
+                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#138808]" /> MSME ZED</div>
+                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#a5d63f]" /> AZQDC</div>
+                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-blue-600" /> NextGen Global</div>
                     </div>
                 </div>
             </div>
 
             {/* About Overview - Formal Layout */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                        <div>
+                        <motion.div {...fadeIn}>
                             <h2 className="text-3xl font-bold text-[#1a202c] mb-2">
                                 Official Facilitators for MSME Development
                             </h2>
-                            <div className="h-1 w-20 bg-[#ff9933] mb-6"></div>
+                            <div className="h-1 w-20 bg-[#45b1b8] mb-6"></div>
 
                             <p className="text-[#4a5568] text-base mb-6 leading-relaxed text-justify">
                                 Shanmukha State & Central Government Contract & Project Services is dedicated to uplifting the MSME sector in Andhra Pradesh.
@@ -92,14 +110,20 @@ const Home = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Link to="/about" className="text-[#003366] font-bold hover:underline inline-flex items-center">
+                            <Link to="/about" className="text-[#45b1b8] font-extrabold hover:underline inline-flex items-center">
                                 Learn more about our mission
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
-                        </div>
-                        <div className="bg-gray-200 p-2 rounded-sm">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="bg-gray-200 p-2 rounded-sm"
+                        >
                             <img src="/images/main-poster.jpg" alt="Shanmukha Projects Overview" className="w-full h-auto object-cover border border-gray-300" />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -109,13 +133,13 @@ const Home = () => {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white p-8 md:p-10 rounded-sm shadow-md border-t-4 border-[#003366]">
                         <div className="text-center mb-8">
-                            <span className="text-[#003366] font-bold tracking-widest uppercase text-xs">Quality Council of India Initiative</span>
+                            <span className="text-[#45b1b8] font-black tracking-widest uppercase text-xs">Quality Council of India Initiative</span>
                             <h2 className="text-3xl font-bold text-[#1a202c] mt-2">Sarpanch Samvaad</h2>
-                            <div className="w-16 h-1 bg-[#138808] mx-auto mt-3"></div>
+                            <div className="w-16 h-1 bg-[#a5d63f] mx-auto mt-3"></div>
                         </div>
 
-                        <div className="bg-[#eff6ff] p-6 rounded-sm border border-blue-100 mb-8 text-center">
-                            <h3 className="font-bold text-xl text-[#1e3a8a] mb-4">సర్పంచ్ సంవాద్ (Sarpanch Samvaad)</h3>
+                        <div className="bg-[#f0fdf4] p-6 rounded-sm border border-green-100 mb-8 text-center">
+                            <h3 className="font-bold text-xl text-[#166534] mb-4">సర్పంచ్ సంవాద్ (Sarpanch Samvaad)</h3>
                             <p className="text-[#2d3748] leading-relaxed text-lg mb-2">
                                 ఇది భారత నాణ్యత మండలి (QCI) ద్వారా సర్పంచులను డిజిటల్గా అనుసంధానించే, నైపుణ్యాన్ని పెంచే మరియు గ్రామాభివృద్ధిని ప్రదర్శించే ఒక వినూత్న మొబైల్ అప్లికేషన్.
                             </p>
@@ -126,27 +150,50 @@ const Home = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                             <div className="text-center p-4">
-                                <CheckCircle className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <CheckCircle className="text-[#45b1b8] h-8 w-8 mx-auto mb-2" />
                                 <h4 className="font-bold text-[#2d3748]">Networking</h4>
                                 <p className="text-xs text-gray-500">Connecting Sarpanchs</p>
                             </div>
                             <div className="text-center p-4 border-l border-r border-gray-100">
-                                <CheckCircle className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <CheckCircle className="text-[#45b1b8] h-8 w-8 mx-auto mb-2" />
                                 <h4 className="font-bold text-[#2d3748]">Capacity Building</h4>
                                 <p className="text-xs text-gray-500">Training & Skills</p>
                             </div>
                             <div className="text-center p-4">
-                                <CheckCircle className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <CheckCircle className="text-[#45b1b8] h-8 w-8 mx-auto mb-2" />
                                 <h4 className="font-bold text-[#2d3748]">Development</h4>
                                 <p className="text-xs text-gray-500">Village Growth</p>
                             </div>
                         </div>
 
                         <div className="text-center">
-                            <Link to="/sarpanch-samvad" className="inline-block px-8 py-3 text-sm font-bold text-white bg-[#003366] hover:bg-[#002244] rounded-sm transition-colors uppercase tracking-widest">
+                            <Link to="/sarpanch-samvad" className="inline-block px-8 py-3 text-sm font-black text-white bg-[#45b1b8] hover:bg-[#348a8f] rounded-sm transition-colors uppercase tracking-widest">
                                 Learn More
                             </Link>
                         </div>
+                    </div>
+
+                    {/* App Features Mini-Grid */}
+                    <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            { title: "Direct Connect", desc: "Network with lakhs of Sarpanchs", icon: <Users size={20} /> },
+                            { title: "Zero Cost", desc: "Free for all Gram Panchayats", icon: <Award size={20} /> },
+                            { title: "Training", desc: "Access govt training modules", icon: <CheckCircle size={20} /> },
+                            { title: "Updates", desc: "Real-time policy notifications", icon: <CheckCircle size={20} /> }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white p-4 text-center border border-gray-100 shadow-sm"
+                            >
+                                <div className="text-[#45b1b8] flex justify-center mb-2">{item.icon}</div>
+                                <h5 className="font-bold text-xs text-[#1a5d62] uppercase tracking-tighter mb-1">{item.title}</h5>
+                                <p className="text-[10px] text-gray-500 leading-tight">{item.desc}</p>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -154,11 +201,11 @@ const Home = () => {
             {/* Featured Event: National Quality Conclave */}
             <section className="py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-8 items-center bg-[#f0f9ff] border border-blue-100 p-6 md:p-10 rounded-sm">
+                    <div className="flex flex-col lg:flex-row gap-8 items-center bg-[#f0fdfa] border border-teal-100 p-6 md:p-10 rounded-sm">
                         <div className="lg:w-1/3">
-                            <div className="bg-[#003366] text-white p-6 rounded-sm text-center border-b-4 border-orange-500">
+                            <div className="bg-[#45b1b8] text-white p-6 rounded-sm text-center border-b-4 border-[#a5d63f]">
                                 <h3 className="text-xl font-bold mb-2">LATEST EVENT</h3>
-                                <p className="text-blue-100 text-xs font-bold uppercase tracking-widest">Sept 2025 | New Delhi</p>
+                                <p className="text-white text-xs font-black uppercase tracking-widest">Sept 2025 | New Delhi</p>
                             </div>
                             <div className="mt-4 p-4 bg-white border border-gray-200">
                                 <p className="text-gray-600 text-sm italic font-medium">
@@ -167,34 +214,61 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="lg:w-2/3">
-                            <h2 className="text-2xl md:text-3xl font-bold text-[#003366] mb-4">
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#45b1b8] mb-4">
                                 National Quality Conclave: Sarpanch Samvaad
                             </h2>
                             <p className="text-gray-700 mb-6 leading-relaxed">
                                 Inaugurated by Union Minister <strong>Shri C. R. Patil</strong>, the conclave brought together 75 distinguished Sarpanchs from 22 states to discuss digital empowerment and quality governance in rural India.
                             </p>
                             <div className="flex flex-wrap gap-4 items-center">
-                                <span className="bg-green-100 text-[#138808] text-xs font-bold px-3 py-1 border border-green-200 uppercase">QCI Initiative</span>
-                                <span className="bg-orange-100 text-[#f39200] text-xs font-bold px-3 py-1 border border-orange-200 uppercase">Digital Inclusion</span>
-                                <Link to="/conclave-2025" className="text-[#003366] font-bold text-sm hover:underline flex items-center ml-auto">
+                                <span className="bg-teal-100 text-[#45b1b8] text-xs font-bold px-3 py-1 border border-teal-200 uppercase">QCI Initiative</span>
+                                <span className="bg-lime-100 text-[#a5d63f] text-xs font-black px-3 py-1 border border-lime-200 uppercase">Digital Inclusion</span>
+                                <Link to="/conclave-2025" className="text-[#45b1b8] font-black text-sm hover:underline flex items-center ml-auto">
                                     VIEW FULL CONCLAVE REPORT <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </div>
                         </div>
                     </div>
+
+                    {/* Organization Key Stats */}
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="initial"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
+                    >
+                        {[
+                            { label: "District Presence", value: "26+" },
+                            { label: "MSMEs Registered", value: "5000+" },
+                            { label: "Quality Camps", value: "150+" },
+                            { label: "Govt. Projects", value: "12+" }
+                        ].map((stat, i) => (
+                            <motion.div key={i} variants={fadeIn} className="bg-white border border-gray-100 p-6 text-center shadow-sm">
+                                <div className="text-3xl font-black text-[#45b1b8] mb-1">{stat.value}</div>
+                                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{stat.label}</div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 
             {/* Services Snippet - Grid Cards */}
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-12">
+                    <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold text-[#1a202c] mb-4">Core Services</h2>
-                        <div className="h-1 w-20 bg-[#ff9933] mx-auto mb-4"></div>
+                        <div className="h-1 w-20 bg-[#45b1b8] mx-auto mb-4"></div>
                         <p className="text-[#4a5568]">Comprehensive support for MSMEs and Government Initiatives</p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="initial"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
                         {[
                             {
                                 title: "MSME ZED Certification",
@@ -212,33 +286,37 @@ const Home = () => {
                                 iconColor: "text-[#c2410c]"
                             }
                         ].map((service, index) => (
-                            <div key={index} className="bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow border-t-4 border-t-gray-200 hover:border-t-[#003366]">
-                                <div className={`mb - 4 ${service.iconColor} `}>
+                            <motion.div
+                                key={index}
+                                variants={fadeIn}
+                                className="bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow border-t-4 border-t-gray-200 hover:border-t-[#45b1b8]"
+                            >
+                                <div className={`mb-4 ${service.iconColor}`}>
                                     <Award className="h-10 w-10" />
                                 </div>
                                 <h3 className="text-lg font-bold text-[#1a202c] mb-2">{service.title}</h3>
                                 <p className="text-[#4a5568] text-sm mb-4 leading-relaxed">{service.desc}</p>
-                                <Link to="/services" className="text-sm font-bold text-[#003366] hover:underline uppercase tracking-wide">
+                                <Link to="/services" className="text-sm font-black text-[#45b1b8] hover:underline uppercase tracking-wide">
                                     Read More &rarr;
                                 </Link>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* CTA - Official Banner Style */}
-            <section className="py-12 bg-[#003366]">
+            <section className="py-12 bg-[#45b1b8]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Ready to Scale Your MSME?</h2>
-                    <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    <p className="text-gray-100 mb-8 max-w-2xl mx-auto">
                         Join thousands of businesses adopting the ZED model for quality and sustainability.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/contact" className="px-8 py-3 bg-[#ff9933] hover:bg-[#e68a00] text-black font-bold text-sm uppercase rounded-sm shadow-sm">
+                        <Link to="/contact" className="px-8 py-3 bg-[#a5d63f] hover:bg-[#94c135] text-[#1a202c] font-black text-sm uppercase rounded-sm shadow-sm">
                             Get Started
                         </Link>
-                        <Link to="/careers" className="px-8 py-3 bg-transparent border border-gray-400 text-white font-bold text-sm uppercase hover:bg-white/10 rounded-sm">
+                        <Link to="/careers" className="px-8 py-3 bg-transparent border border-white text-white font-bold text-sm uppercase hover:bg-white/10 rounded-sm">
                             Join Our Team
                         </Link>
                     </div>

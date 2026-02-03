@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, MapPin, IndianRupee, Clock } from 'lucide-react';
+import { Briefcase, MapPin, IndianRupee, Clock, Send, ChevronRight, FileText } from 'lucide-react';
 
 const Careers = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +18,6 @@ const Careers = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Application submitted successfully! (Demo)');
-        // Logic to send data would go here
     };
 
     const jobs = [
@@ -34,7 +33,7 @@ const Careers = () => {
         },
         {
             title: "District Coordinator",
-            service: "Sarpanch Samvad App",
+            service: "Sarpanch Samvaad App",
             location: "Andhra Pradesh (District Level)",
             salary: "₹25,000 – ₹30,000 / month",
             type: "Contractual",
@@ -45,161 +44,188 @@ const Careers = () => {
     ];
 
     return (
-        <div className="bg-[#f8fafc] min-h-screen">
-            <div className="bg-[#003366] text-white py-12 md:py-16 text-center border-b-4 border-orange-500">
-                <h1 className="text-3xl md:text-4xl font-bold mb-4">Join Our Team</h1>
-                <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                    Career Opportunities at Shanmukha Projects
-                </p>
+        <div className="bg-[#f8fafc] min-h-screen font-sans">
+            {/* Page Header */}
+            <div className="bg-[#45b1b8] text-white py-16 md:py-20 border-b-4 border-[#a5d63f] relative overflow-hidden text-center">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight uppercase">Join Our Mission</h1>
+                    <div className="h-1 w-20 bg-[#a5d63f] mx-auto mb-6"></div>
+                    <p className="text-xl text-blue-50 max-w-2xl mx-auto leading-relaxed font-medium">
+                        Build your career while empowering rural India and the MSME sector.
+                    </p>
+                </div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
-                    {/* Job Listings */}
-                    <div className="space-y-6">
-                        <h2 className="text-2xl font-bold text-[#1a202c] mb-6 border-l-4 border-[#138808] pl-4">Current Openings</h2>
-
-                        <div className="mb-8 rounded-sm overflow-hidden shadow-sm border border-gray-300">
-                            <img src="/images/roles-info.jpg" alt="Job Roles Info" className="w-full h-auto" />
+                    {/* Job Listings Column */}
+                    <div className="space-y-8">
+                        <div className="mb-10">
+                            <h2 className="text-3xl font-black text-[#1a202c] mb-6 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-tight">Open Opportunities</h2>
+                            <div className="rounded-sm overflow-hidden shadow-xl border-4 border-white mb-8">
+                                <img src="/images/roles-info.jpg" alt="Job Roles Info" className="w-full h-auto" />
+                            </div>
                         </div>
 
                         {jobs.map((job, idx) => (
-                            <div key={idx} className="bg-white p-6 rounded-sm shadow-sm border border-gray-200 hover:border-[#003366] transition-colors">
-                                <div className="flex justify-between items-start mb-4 border-b border-gray-100 pb-2">
+                            <div key={idx} className="bg-white p-8 rounded-sm shadow-lg border border-gray-100 hover:border-[#45b1b8] transition-all duration-300 relative group">
+                                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                    <Briefcase size={80} className="text-[#45b1b8]" />
+                                </div>
+                                <div className="flex justify-between items-start mb-6 border-b border-gray-50 pb-4">
                                     <div>
-                                        <h3 className="text-xl font-bold text-[#003366]">{job.title}</h3>
-                                        <span className="text-xs font-bold uppercase text-[#138808] bg-green-50 px-2 py-1 mt-1 inline-block tracking-wide">
-                                            {job.service}
-                                        </span>
+                                        <h3 className="text-2xl font-bold text-[#1a5d62]">{job.title}</h3>
+                                        <div className="flex items-center gap-2 mt-2">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-white bg-[#45b1b8] px-3 py-1 rounded-sm">
+                                                {job.service}
+                                            </span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-[#a5d63f] bg-teal-50 border border-teal-100 px-3 py-1 rounded-sm">
+                                                {job.type}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 font-bold border border-gray-300 uppercase">
-                                        {job.type}
-                                    </span>
                                 </div>
 
-                                <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                                <p className="text-gray-700 mb-8 leading-relaxed font-medium">
                                     {job.desc}
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-y-3 text-sm text-gray-600 mb-6 font-medium">
-                                    <div className="flex items-center gap-2"><MapPin size={16} className="text-[#f39200]" /> {job.location}</div>
-                                    <div className="flex items-center gap-2"><IndianRupee size={16} className="text-[#f39200]" /> {job.salary}</div>
-                                    <div className="flex items-center gap-2"><Briefcase size={16} className="text-[#003366]" /> {job.eligibility}</div>
-                                    <div className="flex items-center gap-2"><Clock size={16} className="text-[#003366]" /> Age: {job.age}</div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm mb-10">
+                                    <div className="flex items-center gap-3 text-gray-600">
+                                        <div className="p-2 bg-gray-50 rounded-sm"><MapPin size={18} className="text-[#a5d63f]" /></div>
+                                        <span className="font-bold">{job.location}</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-gray-600">
+                                        <div className="p-2 bg-gray-50 rounded-sm"><IndianRupee size={18} className="text-[#a5d63f]" /></div>
+                                        <span className="font-bold">{job.salary}</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-gray-600">
+                                        <div className="p-2 bg-gray-50 rounded-sm"><FileText size={18} className="text-[#45b1b8]" /></div>
+                                        <span className="font-medium">{job.eligibility}</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-gray-600">
+                                        <div className="p-2 bg-gray-50 rounded-sm"><Clock size={18} className="text-[#45b1b8]" /></div>
+                                        <span className="font-medium">Age: {job.age}</span>
+                                    </div>
                                 </div>
 
-                                <div className="pt-4 border-t border-gray-100">
+                                <div className="pt-6 border-t border-gray-50">
                                     <button
                                         onClick={() => {
-                                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            // Ideally focus on form
+                                            document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' });
                                         }}
-                                        className="text-[#003366] font-bold text-sm hover:underline uppercase tracking-wide flex items-center gap-1"
+                                        className="text-[#45b1b8] font-black text-sm uppercase tracking-[0.2em] flex items-center gap-2 group-hover:gap-4 transition-all"
                                     >
-                                        Apply Now <span>&darr;</span>
+                                        Apply for this position <ChevronRight size={16} />
                                     </button>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Application Form & Poster */}
-                    <div className="lg:order-last order-first space-y-8">
-                        <div className="rounded-sm overflow-hidden shadow-sm border border-gray-300">
+                    {/* Registration Form Column */}
+                    <div id="application-form" className="lg:sticky lg:top-24 space-y-10">
+                        <div className="rounded-sm overflow-hidden shadow-2xl border-4 border-white">
                             <img src="/images/recruitment-poster.jpg" alt="Recruitment Poster" className="w-full h-auto" />
                         </div>
 
-                        <div className="bg-white p-8 rounded-sm shadow-md border border-gray-200 border-t-4 border-t-[#138808] sticky top-24">
-                            <h2 className="text-2xl font-bold text-[#1a202c] mb-6">Apply Now</h2>
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Position Applied For</label>
+                        <div className="bg-white p-10 rounded-sm shadow-2xl border border-gray-100 border-t-8 border-t-[#45b1b8]">
+                            <div className="mb-10">
+                                <h2 className="text-3xl font-black text-[#1a202c] mb-2 uppercase tracking-tight">Application Form</h2>
+                                <p className="text-gray-500 font-medium tracking-wide">Submit your details to start the process.</p>
+                                <div className="w-16 h-1 bg-[#a5d63f] mt-4"></div>
+                            </div>
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">Position Preference</label>
                                     <select
                                         name="position"
                                         value={formData.position}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all bg-gray-50"
+                                        className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-bold appearance-none rounded-sm"
                                     >
                                         <option value="ZED Facilitator">ZED Facilitator</option>
                                         <option value="District Coordinator">District Coordinator</option>
                                     </select>
                                 </div>
 
-                                <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Full Name</label>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">Full Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all"
-                                        placeholder="Enter your full name"
+                                        className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-medium rounded-sm"
+                                        placeholder="Enter your name"
                                     />
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Phone Number</label>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">Phone</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             required
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all"
-                                            placeholder="9876543210"
+                                            className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-medium rounded-sm"
+                                            placeholder="91xxxxxxxx"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Email</label>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">Email</label>
                                         <input
                                             type="email"
                                             name="email"
                                             required
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all"
-                                            placeholder="you@example.com"
+                                            className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-medium rounded-sm"
+                                            placeholder="mail@example.com"
                                         />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Highest Qualification</label>
-                                    <input
-                                        type="text"
-                                        name="qualification"
-                                        required
-                                        value={formData.qualification}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all"
-                                        placeholder="e.g. B.Tech / MBA"
-                                    />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">Qualification</label>
+                                        <input
+                                            type="text"
+                                            name="qualification"
+                                            required
+                                            value={formData.qualification}
+                                            onChange={handleChange}
+                                            className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-medium rounded-sm"
+                                            placeholder="B.Tech / MBA / Degree"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase text-[#1a5d62] tracking-[0.2em]">District (AP)</label>
+                                        <input
+                                            type="text"
+                                            name="district"
+                                            required
+                                            value={formData.district}
+                                            onChange={handleChange}
+                                            className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-medium rounded-sm"
+                                            placeholder="e.g., Prakasam"
+                                        />
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Native District (AP)</label>
-                                    <input
-                                        type="text"
-                                        name="district"
-                                        required
-                                        value={formData.district}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:border-[#003366] focus:ring-1 focus:ring-[#003366] outline-none transition-all"
-                                        placeholder="e.g. Prakasam"
-                                    />
-                                </div>
-
-                                <div className="pt-4">
-                                    <button
-                                        type="submit"
-                                        className="w-full bg-[#138808] hover:bg-green-700 text-white font-bold py-3 rounded-sm shadow-sm transition-colors uppercase tracking-wide"
-                                    >
-                                        Submit Application
-                                    </button>
-                                </div>
+                                <button
+                                    type="submit"
+                                    className="w-full bg-[#45b1b8] text-white font-black py-5 rounded-sm hover:bg-[#1a5d62] transition-all shadow-xl uppercase tracking-[0.3em] text-sm flex items-center justify-center gap-3 group mt-4"
+                                >
+                                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    Submit Application
+                                </button>
                             </form>
                         </div>
                     </div>

@@ -5,17 +5,17 @@ const Conclave2025 = () => {
     return (
         <div className="bg-[#f8fafc] min-h-screen font-sans">
             {/* Header / Hero Section */}
-            <div className="bg-[#003366] text-white py-12 md:py-16 border-b-4 border-[#f39200]">
+            <div className="bg-[#45b1b8] text-white py-12 md:py-16 border-b-4 border-[#a5d63f]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
                         <div className="flex-1">
-                            <div className="inline-block bg-white text-[#003366] px-3 py-1 mb-4 rounded-sm text-xs font-bold uppercase tracking-wider border-l-4 border-[#138808]">
+                            <div className="inline-block bg-white text-[#45b1b8] px-3 py-1 mb-4 rounded-sm text-xs font-bold uppercase tracking-wider border-l-4 border-[#138808]">
                                 Press Information Bureau (PIB) Release
                             </div>
                             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                                 Union Minister of Jal Shakti Shri C R Patil inaugurates the Sarpanch Samvaad National Quality Conclave
                             </h1>
-                            <p className="text-xl md:text-2xl text-blue-100 mb-6 italic border-l-4 border-[#f39200] pl-6 py-2">
+                            <p className="text-xl md:text-2xl text-blue-50 mb-6 italic border-l-4 border-[#a5d63f] pl-6 py-2">
                                 "Empowering grassroots leadership for Viksit Bharat 2047"
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-blue-100 mt-4 text-sm md:text-base font-medium">
@@ -42,7 +42,7 @@ const Conclave2025 = () => {
                             <p className="text-gray-800 leading-relaxed text-lg mb-6 text-justify">
                                 The Quality Council of India (QCI), in collaboration with the Department of Drinking Water and Sanitation (DDWS), Ministry of Jal Shakti and Ministry of Panchayati Raj organised the <strong>Sarpanch Samvaad National Quality Conclave</strong> today centered around the theme <strong>"Viksit Gram se Viksit Bharat"</strong>.
                             </p>
-                            <div className="bg-[#f0f9ff] p-6 border-l-4 border-[#f39200] italic text-gray-700">
+                            <div className="bg-[#f0fdfa] p-6 border-l-4 border-[#a5d63f] italic text-gray-700">
                                 "Sarpanch Samvaad has shown how digital platforms can unite and empower them to share solutions that matter at the grassroots: <strong>Shri C R Patil</strong>"
                             </div>
                         </div>
@@ -58,7 +58,7 @@ const Conclave2025 = () => {
                             <p className="text-sm font-bold text-gray-600 uppercase">States Represented</p>
                         </div>
                         <div className="p-4 bg-gray-50 border border-gray-200">
-                            <h4 className="text-3xl font-bold text-[#f39200] mb-1">60,000+</h4>
+                            <h4 className="text-3xl font-bold text-[#45b1b8] mb-1">60,000+</h4>
                             <p className="text-sm font-bold text-gray-600 uppercase">Onboarded on Mobile App</p>
                         </div>
                     </div>
@@ -79,11 +79,11 @@ const Conclave2025 = () => {
 
                 {/* Dignitaries Perspectives */}
                 <div className="mb-12">
-                    <h2 className="text-2xl font-bold text-[#1a202c] mb-6 border-l-4 border-[#003366] pl-4 uppercase tracking-wide">Government Perspectives & Strategic Vision</h2>
+                    <h2 className="text-2xl font-bold text-[#1a202c] mb-6 border-l-4 border-[#45b1b8] pl-4 uppercase tracking-wide">Government Perspectives & Strategic Vision</h2>
                     <div className="space-y-6">
                         {/* Vivek Bharadwaj */}
-                        <div className="bg-white p-6 border border-gray-200 border-l-8 border-l-[#003366] shadow-sm">
-                            <h3 className="font-bold text-[#003366] mb-2 uppercase text-sm tracking-widest">Shri Vivek Bharadwaj, Secretary, Ministry of Panchayati Raj</h3>
+                        <div className="bg-white p-6 border border-gray-200 border-l-8 border-l-[#3e9fa3] shadow-sm">
+                            <h3 className="font-bold text-[#3e9fa3] mb-2 uppercase text-sm tracking-widest">Shri Vivek Bharadwaj, Secretary, Ministry of Panchayati Raj</h3>
                             <p className="text-gray-700 italic leading-relaxed">
                                 "Through e-governance and ICT tools like <strong>E-Gram Swaraj, PAI, and Sabha Saar</strong>, the Ministry is working to strengthen grassroots governance. To build truly Viksit Gram Panchayats, we must strengthen Village Water and Sanitation Committees, adopt e-governance for transparency, and embed <strong>Gunvatta</strong> (Quality) in every initiative."
                             </p>
@@ -98,8 +98,8 @@ const Conclave2025 = () => {
                         </div>
 
                         {/* Jaxay Shah */}
-                        <div className="bg-white p-6 border border-gray-200 border-l-8 border-l-[#f39200] shadow-sm">
-                            <h3 className="font-bold text-[#f39200] mb-2 uppercase text-sm tracking-widest">Shri Jaxay Shah, Chairperson, QCI</h3>
+                        <div className="bg-white p-6 border border-gray-200 border-l-8 border-l-[#a5d63f] shadow-sm">
+                            <h3 className="font-bold text-[#a5d63f] mb-2 uppercase text-sm tracking-widest">Shri Jaxay Shah, Chairperson, QCI</h3>
                             <p className="text-gray-700 italic leading-relaxed">
                                 "Today, we have connected over 60,000 Sarpanchs through this initiative, but our journey does not stop here. I have set a goal for my team to connect an additional <strong>75,000 Sarpanchs by this October</strong>, and to reach <strong>1,00,000 Sarpanchs</strong> by the birthday of our beloved late former Prime Minister, Shri Atal Bihari Vajpayee."
                             </p>

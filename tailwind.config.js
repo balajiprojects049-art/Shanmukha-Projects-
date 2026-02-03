@@ -11,6 +11,8 @@ export default {
           blue: '#003366',
           orange: '#f39200',
           green: '#138808',
+          teal: '#45b1b8',
+          lime: '#a5d63f',
           text: '#1a202c',
           bg: '#f8fafc',
         }

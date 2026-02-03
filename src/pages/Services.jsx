@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Users, Briefcase, FileText } from 'lucide-react';
+import { ShieldCheck, Users, Briefcase, FileText, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -7,8 +7,8 @@ const Services = () => {
         {
             id: "zed-certification",
             title: "MSME ZED Certification",
-            icon: <ShieldCheck className="h-10 w-10 text-green-600" />,
-            description: "Comprehensive support for MSMEs to achieve 'Zero Defect Zero Effect' certification from the Ministry of MSME.",
+            icon: <ShieldCheck className="h-10 w-10 text-[#45b1b8]" />,
+            description: "Comprehensive support for MSMEs to achieve 'Zero Defect Zero Effect' certification from the Ministry of MSME, enhancing global competitiveness.",
             details: [
                 "Awareness & Onboarding of MSMEs",
                 "Documentation Support & Handholding",
@@ -19,9 +19,9 @@ const Services = () => {
         },
         {
             id: "sarpanch-samvad",
-            title: "Sarpanch Samvad Mobile App",
-            icon: <Users className="h-10 w-10 text-blue-600" />,
-            description: "An initiative by the Quality Council of India (QCI) to connect Sarpanchs across India for better governance.",
+            title: "Sarpanch Samvaad Platform",
+            icon: <Users className="h-10 w-10 text-[#a5d63f]" />,
+            description: "A digital initiative by Quality Council of India (QCI) to connect 2.5 lakh Sarpanchs across India for quality village governance.",
             details: [
                 "Onboarding Sarpanchs to the platform",
                 "Data collection and verification",
@@ -33,74 +33,88 @@ const Services = () => {
         {
             id: "govt-contracts",
             title: "State & Central Govt. Projects",
-            icon: <Briefcase className="h-10 w-10 text-orange-600" />,
-            description: "Execution and management support for various government contracts and developmental projects.",
+            icon: <Briefcase className="h-10 w-10 text-[#45b1b8]" />,
+            description: "Execution and management support for various government contracts, surveys, and field-level developmental implementations.",
             details: [
                 "MSME Digital Empowerment Initiatives",
                 "Field-level Project Implementation",
                 "Surveys and Data Collection",
                 "Public Sector Coordination"
             ],
-            link: "#"
+            link: "/contact"
         }
     ];
 
     return (
-        <div className="bg-[#f8fafc] min-h-screen pb-16">
-            <div className="bg-[#003366] text-white py-12 md:py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="border-l-4 border-orange-500 pl-4">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-2">Our Schems & Services</h1>
-                        <p className="text-lg text-blue-100 max-w-2xl">
-                            Professional facilitation and consultancy services for Government Schemes in Andhra Pradesh.
-                        </p>
-                    </div>
+        <div className="bg-[#f8fafc] min-h-screen">
+            {/* Page Header */}
+            <div className="bg-[#45b1b8] text-white py-16 md:py-20 border-b-4 border-[#a5d63f] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight uppercase">Our Schemes & Services</h1>
+                    <div className="h-1 w-20 bg-[#a5d63f] mx-auto mb-6"></div>
+                    <p className="text-xl text-blue-50 max-w-2xl mx-auto leading-relaxed font-medium">
+                        Professional facilitation and consultancy services for Government Schemes and Quality Standards in Andhra Pradesh.
+                    </p>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 gap-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="space-y-12">
                     {services.map((service) => (
-                        <div key={service.id} className="bg-white rounded-sm shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                        <div key={service.id} className="bg-white rounded-sm shadow-xl border border-gray-100 overflow-hidden hover:border-[#45b1b8] transition-all duration-300">
                             <div className="md:flex">
-                                <div className="md:w-64 bg-gray-50 flex flex-col items-center justify-center p-8 border-r border-gray-200">
-                                    <div className="bg-white p-4 rounded-full border border-gray-200 mb-4">
+                                <div className="md:w-72 bg-gray-50 flex flex-col items-center justify-center p-10 border-r border-gray-100">
+                                    <div className="bg-white p-6 rounded-full shadow-md border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-lg font-bold text-center text-[#003366]">{service.title}</h3>
+                                    <h3 className="text-xl font-bold text-center text-[#1a5d62] uppercase tracking-tight leading-tight">{service.title}</h3>
                                 </div>
-                                <div className="p-8 md:flex-1">
-                                    <p className="text-gray-700 text-lg mb-6 leading-relaxed bg-[#f0f9ff] p-4 border-l-4 border-[#003366]">
-                                        {service.description}
-                                    </p>
+                                <div className="p-10 md:flex-1">
+                                    <div className="bg-teal-50/50 p-6 border-l-8 border-[#45b1b8] mb-8">
+                                        <p className="text-gray-800 text-lg leading-relaxed font-medium">
+                                            {service.description}
+                                        </p>
+                                    </div>
 
-                                    <h4 className="font-bold text-[#1a202c] mb-4 flex items-center gap-2 uppercase text-sm tracking-wide">
-                                        <FileText size={16} className="text-[#f39200]" /> Key Objectives:
+                                    <h4 className="font-black text-[#1a202c] mb-6 flex items-center gap-2 uppercase text-xs tracking-[0.2em]">
+                                        <FileText size={18} className="text-[#a5d63f]" /> Key Objectives
                                     </h4>
-                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-10">
                                         {service.details.map((detail, idx) => (
-                                            <li key={idx} className="flex items-start gap-2 text-gray-700 text-sm">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-[#138808] mt-2 shrink-0"></span>
+                                            <li key={idx} className="flex items-start gap-3 text-gray-700 font-medium">
+                                                <ChevronRight size={18} className="text-[#a5d63f] shrink-0 mt-0.5" />
                                                 {detail}
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <div className="flex gap-4">
-                                        {service.link !== "#" ? (
-                                            <Link to={service.link} className="inline-block bg-[#003366] text-white px-6 py-2 text-sm font-bold uppercase tracking-wide hover:bg-[#002244] border-b-2 border-[#f39200] transition-colors rounded-sm">
-                                                View Details
-                                            </Link>
-                                        ) : (
-                                            <Link to="/contact" className="inline-block bg-white text-[#003366] border border-[#003366] px-6 py-2 text-sm font-bold uppercase tracking-wide hover:bg-blue-50 transition-colors rounded-sm">
-                                                Enquire Now
-                                            </Link>
-                                        )}
+                                    <div className="pt-6 border-t border-gray-100">
+                                        <Link
+                                            to={service.link}
+                                            className="inline-flex items-center gap-2 bg-[#45b1b8] text-white px-8 py-3 text-sm font-black uppercase tracking-widest hover:bg-[#1a5d62] transition-all shadow-lg rounded-sm"
+                                        >
+                                            View Details
+                                            <ChevronRight size={16} />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-[#1a5d62] py-16 text-white text-center">
+                <div className="max-w-4xl mx-auto px-4">
+                    <h2 className="text-3xl font-black uppercase tracking-widest mb-6 text-[#a5d63f]">Interested in our services?</h2>
+                    <p className="text-teal-50 text-lg mb-10 max-w-2xl mx-auto">
+                        We provide end-to-end support for registration, documentation, and implementation of government projects.
+                    </p>
+                    <Link to="/contact" className="inline-block bg-white text-[#1a5d62] px-12 py-4 text-sm font-black uppercase tracking-widest hover:bg-[#a5d63f] hover:text-white transition-all shadow-2xl">
+                        Enquire Now
+                    </Link>
                 </div>
             </div>
         </div>

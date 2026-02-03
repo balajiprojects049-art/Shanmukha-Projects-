@@ -14,16 +14,16 @@ const Navbar = () => {
         { name: 'Home', path: '/' },
         { name: 'About Us', path: '/about' },
         { name: 'Services', path: '/services' },
-        { name: 'ZED Certification', path: '/zed-certification' },
-        { name: 'Careers', path: '/careers' },
         {
-            name: 'Events & Media',
-            path: '#',
+            name: 'ZED Certification',
+            path: '/zed-certification',
             dropdown: [
-                { name: 'National Quality Conclave', path: '/conclave-2025' },
-                { name: 'Gallery', path: '/gallery' }
+                { name: 'Sarpanch Samvaad', path: '/sarpanch-samvad' },
+                { name: 'National Quality Conclave', path: '/conclave-2025' }
             ]
         },
+        { name: 'Careers', path: '/careers' },
+        { name: 'Gallery', path: '/gallery' },
         { name: 'Contact Us', path: '/contact' },
     ];
 
@@ -116,39 +116,45 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* 3. NAVIGATION BAR (Solid Color) */}
-            <nav className="bg-[#003366] text-white shadow-md relative z-10 border-t-4 border-orange-500">
+            {/* 3. NAVIGATION BAR (ZED Colors Gradient) */}
+            <nav className="bg-gradient-to-r from-[#a5d63f] via-[#45b1b8] to-[#45b1b8] text-white shadow-md relative z-10 border-t-4 border-[#3e9fa3]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex flex-wrap">
                         {navLinks.map((link) => (
                             <li key={link.name} className="group relative h-full">
                                 {link.dropdown ? (
-                                    <>
-                                        <button
-                                            className={`flex items-center gap-1 h-full px-6 py-4 text-sm font-bold tracking-wide uppercase transition-colors 
-                                                ${isActive(link) ? 'bg-[#f39200] text-white' : 'hover:bg-[#005da3] text-white'}`}
+                                    <div className="flex h-full">
+                                        <Link
+                                            to={link.path}
+                                            className={`flex items-center gap-1 h-full px-4 py-4 text-sm font-extrabold tracking-wide uppercase transition-colors 
+                                                ${isActive(link) ? 'bg-black/20 text-white' : 'hover:bg-black/10 text-white'}`}
                                         >
                                             {link.name}
+                                        </Link>
+                                        <button
+                                            className={`px-2 py-4 h-full flex items-center transition-colors hover:bg-black/10`}
+                                            aria-label="Toggle Dropdown"
+                                        >
                                             <ChevronDown size={14} />
                                         </button>
-                                        <ul className="absolute left-0 top-full w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#f39200] hidden group-hover:block animate-fade-in z-50">
+                                        <ul className="absolute left-0 top-full w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#a5d63f] hidden group-hover:block animate-fade-in z-50">
                                             {link.dropdown.map((dropLink) => (
                                                 <li key={dropLink.path} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                                                    <Link to={dropLink.path} className="block px-4 py-3 text-sm font-semibold hover:text-[#003366]">
+                                                    <Link to={dropLink.path} className="block px-4 py-3 text-sm font-bold text-gray-700 hover:text-[#45b1b8]">
                                                         {dropLink.name}
                                                     </Link>
                                                 </li>
                                             ))}
                                         </ul>
-                                    </>
+                                    </div>
                                 ) : (
                                     <Link
                                         to={link.path}
-                                        className={`inline-block h-full px-6 py-4 text-sm font-bold tracking-wide uppercase transition-colors
+                                        className={`inline-block h-full px-6 py-4 text-sm font-extrabold tracking-wide uppercase transition-colors
                                             ${isActive(link)
-                                                ? 'bg-[#f39200] text-white' // Active: Saffron background
-                                                : 'hover:bg-[#005da3] text-white' // Hover: Lighter Blue
+                                                ? 'bg-black/20 text-white' // Active: semi-transparent dark overlay
+                                                : 'hover:bg-black/10 text-white' // Hover: semi-transparent dark overlay
                                             }`}
                                     >
                                         {link.name}
@@ -164,18 +170,24 @@ const Navbar = () => {
                             {navLinks.map((link) => (
                                 <li key={link.name}>
                                     {link.dropdown ? (
-                                        <div>
-                                            <button
-                                                onClick={() => toggleMobileDropdown(link.name)}
-                                                className={`w-full flex justify-between items-center px-4 py-3 border-l-4 text-sm font-bold uppercase transition-colors
-                                                    ${isActive(link)
-                                                        ? 'border-yellow-400 bg-blue-800 text-yellow-500'
-                                                        : 'border-transparent hover:bg-blue-800 text-gray-100'}`}
-                                            >
-                                                {link.name}
-                                                <ChevronDown size={16} className={`transform transition-transform ${dropdownOpen === link.name ? 'rotate-180' : ''}`} />
-                                            </button>
-                                            <div className={`bg-[#002244] overflow-hidden transition-all duration-300 ${dropdownOpen === link.name ? 'max-h-40' : 'max-h-0'}`}>
+                                        <div className="flex flex-col">
+                                            <div className="flex w-full items-stretch border-l-4 border-transparent hover:bg-black/10">
+                                                <Link
+                                                    to={link.path}
+                                                    onClick={() => setIsOpen(false)}
+                                                    className={`flex-1 px-4 py-3 text-sm font-bold uppercase transition-colors
+                                                        ${isActive(link) ? 'text-white' : 'text-gray-100'}`}
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                                <button
+                                                    onClick={(e) => { e.preventDefault(); toggleMobileDropdown(link.name); }}
+                                                    className="px-6 border-l border-white/10 flex items-center"
+                                                >
+                                                    <ChevronDown size={16} className={`transform transition-transform ${dropdownOpen === link.name ? 'rotate-180' : ''}`} />
+                                                </button>
+                                            </div>
+                                            <div className={`bg-[#3e9fa3] overflow-hidden transition-all duration-300 ${dropdownOpen === link.name ? 'max-h-40' : 'max-h-0'}`}>
                                                 <ul>
                                                     {link.dropdown.map((dropLink) => (
                                                         <li key={dropLink.path}>
@@ -196,8 +208,8 @@ const Navbar = () => {
                                             to={link.path}
                                             onClick={() => setIsOpen(false)}
                                             className={`block px-4 py-3 border-l-4 text-sm font-bold uppercase ${isActive(link)
-                                                ? 'border-yellow-400 bg-blue-800 text-yellow-400'
-                                                : 'border-transparent hover:bg-blue-800 text-gray-100'
+                                                ? 'border-white bg-black/20 text-white font-black'
+                                                : 'border-transparent hover:bg-black/10 text-gray-100'
                                                 }`}
                                         >
                                             {link.name}
