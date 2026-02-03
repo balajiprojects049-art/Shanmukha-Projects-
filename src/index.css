@@ -8,4 +8,38 @@
   body {
     @apply font-sans antialiased text-gray-900 bg-gray-50;
   }
+
+  body.high-contrast {
+    @apply bg-black text-yellow-400 !important;
+  }
+
+  body.high-contrast * {
+    @apply border-yellow-400 !important;
+    background-color: black !important;
+    color: #facc15 !important;
+    /* yellow-400 */
+  }
+
+  body.high-contrast a,
+  body.high-contrast button {
+    @apply underline !important;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
 }

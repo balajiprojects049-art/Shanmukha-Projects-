@@ -1,30 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(null); // For mobile dropdown toggle
     const location = useLocation();
+    const { language, setLanguage, t } = useLanguage();
 
     // Gov style accessibility tools
-    const [fontSize, setFontSize] = useState(1); // 1 = normal
+    const [fontSize, setFontSize] = useState(100); // percentage
+    const [isHighContrast, setIsHighContrast] = useState(false);
+
+    useEffect(() => {
+        document.documentElement.style.fontSize = `${fontSize}%`;
+    }, [fontSize]);
+
+    useEffect(() => {
+        if (isHighContrast) {
+            document.body.classList.add('high-contrast');
+        } else {
+            document.body.classList.remove('high-contrast');
+        }
+    }, [isHighContrast]);
 
     const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'About Us', path: '/about' },
-        { name: 'Services', path: '/services' },
+        { name: t('home'), path: '/' },
+        { name: t('about'), path: '/about' },
+        { name: t('services'), path: '/services' },
         {
-            name: 'ZED Certification',
+            name: t('zed'),
             path: '/zed-certification',
             dropdown: [
-                { name: 'Sarpanch Samvaad', path: '/sarpanch-samvad' },
-                { name: 'National Quality Conclave', path: '/conclave-2025' }
+                { name: t('sarpanch'), path: '/sarpanch-samvad' },
+                { name: t('conclave'), path: '/conclave-2025' }
             ]
         },
-        { name: 'Careers', path: '/careers' },
-        { name: 'Gallery', path: '/gallery' },
-        { name: 'Contact Us', path: '/contact' },
+        { name: t('careers'), path: '/careers' },
+        { name: t('gallery'), path: '/gallery' },
+        { name: t('contact'), path: '/contact' },
     ];
 
     const isActive = (link) => {
@@ -49,23 +64,37 @@ const Navbar = () => {
             <div className="bg-[#f0f0f0] border-b border-gray-300 text-[#333333] py-1 px-2 text-[11px] md:text-xs">
                 <div className="max-w-7xl mx-auto flex justify-end items-center gap-4 split-nav">
                     <div className="hidden md:flex items-center gap-3 border-r border-gray-400 pr-3">
-                        <span className="hover:underline cursor-pointer font-medium">Skip to Main Content</span>
+                        <a href="#main-content" className="hover:underline cursor-pointer font-medium">Skip to Main Content</a>
                         <span className="text-gray-400">|</span>
                         <span className="hover:underline cursor-pointer font-medium">Screen Reader Access</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1">
-                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(0.9)}>A-</span>
-                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(1)}>A</span>
-                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(1.1)}>A+</span>
+                            <button className={`cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold ${fontSize === 90 ? 'bg-gray-300' : ''}`} onClick={() => setFontSize(90)}>A-</button>
+                            <button className={`cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold ${fontSize === 100 ? 'bg-gray-300' : ''}`} onClick={() => setFontSize(100)}>A</button>
+                            <button className={`cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold ${fontSize === 110 ? 'bg-gray-300' : ''}`} onClick={() => setFontSize(110)}>A+</button>
                         </div>
                         <div className="flex border border-gray-400 rounded overflow-hidden">
-                            <span className="bg-black text-white px-2 py-0.5 cursor-pointer text-[10px]">A</span>
-                            <span className="bg-white text-black px-2 py-0.5 cursor-pointer hover:bg-gray-100 text-[10px]">A</span>
+                            <button
+                                className={`bg-black text-white px-2 py-0.5 cursor-pointer text-[10px] ${isHighContrast ? 'ring-2 ring-inset ring-yellow-400' : ''}`}
+                                onClick={() => setIsHighContrast(true)}
+                                title="High Contrast"
+                            >A</button>
+                            <button
+                                className={`bg-white text-black px-2 py-0.5 cursor-pointer hover:bg-gray-100 text-[10px] ${!isHighContrast ? 'ring-2 ring-inset ring-[#45b1b8]' : ''}`}
+                                onClick={() => setIsHighContrast(false)}
+                                title="Normal Contrast"
+                            >A</button>
                         </div>
                         <div className="flex items-center gap-2 ml-2">
-                            <span className="hover:underline cursor-pointer font-bold border-r border-gray-400 pr-2">English</span>
-                            <span className="hover:underline cursor-pointer font-medium">हिन्दी</span>
+                            <button
+                                className={`hover:underline cursor-pointer font-bold border-r border-gray-400 pr-2 ${language === 'en' ? 'text-[#003366]' : ''}`}
+                                onClick={() => setLanguage('en')}
+                            >English</button>
+                            <button
+                                className={`hover:underline cursor-pointer font-medium ${language === 'te' ? 'text-[#003366] font-bold' : ''}`}
+                                onClick={() => setLanguage('te')}
+                            >తెలుగు</button>
                         </div>
                     </div>
                 </div>

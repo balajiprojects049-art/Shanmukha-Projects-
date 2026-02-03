@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import { LanguageProvider } from './context/LanguageContext';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -26,19 +27,21 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/zed-certification" element={<ZEDCertification />} />
-          <Route path="/sarpanch-samvad" element={<SarpanchSamvad />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/conclave-2025" element={<Conclave2025 />} />
-        </Routes>
-      </Layout>
+      <LanguageProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/zed-certification" element={<ZEDCertification />} />
+            <Route path="/sarpanch-samvad" element={<SarpanchSamvad />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/conclave-2025" element={<Conclave2025 />} />
+          </Routes>
+        </Layout>
+      </LanguageProvider>
     </Router>
   );
 }
