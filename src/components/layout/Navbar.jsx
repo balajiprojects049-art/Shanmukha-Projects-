@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(null); // For mobile dropdown toggle
     const location = useLocation();
 
     // Gov style accessibility tools
@@ -15,36 +16,56 @@ const Navbar = () => {
         { name: 'Services', path: '/services' },
         { name: 'ZED Certification', path: '/zed-certification' },
         { name: 'Careers', path: '/careers' },
-        { name: 'Gallery', path: '/gallery' },
+        {
+            name: 'Events & Media',
+            path: '#',
+            dropdown: [
+                { name: 'National Quality Conclave', path: '/conclave-2025' },
+                { name: 'Gallery', path: '/gallery' }
+            ]
+        },
         { name: 'Contact Us', path: '/contact' },
     ];
 
-    const isActive = (path) => location.pathname === path;
+    const isActive = (link) => {
+        if (link.path === location.pathname) return true;
+        if (link.dropdown) {
+            return link.dropdown.some(dropItem => dropItem.path === location.pathname);
+        }
+        return false;
+    };
+
+    const toggleMobileDropdown = (name) => {
+        if (dropdownOpen === name) {
+            setDropdownOpen(null);
+        } else {
+            setDropdownOpen(name);
+        }
+    };
 
     return (
         <header className="w-full flex-col font-sans relative z-50">
             {/* 1. GOV TOP BAR (Accessibility & Utils) */}
-            <div className="bg-[#1b1b1b] text-white py-1.5 px-2 text-[11px] md:text-xs">
+            <div className="bg-[#f0f0f0] border-b border-gray-300 text-[#333333] py-1 px-2 text-[11px] md:text-xs">
                 <div className="max-w-7xl mx-auto flex justify-end items-center gap-4 split-nav">
-                    <div className="hidden md:flex items-center gap-3 border-r border-gray-600 pr-3">
-                        <span className="hover:underline cursor-pointer">Skip to Main Content</span>
-                        <span>|</span>
-                        <span className="hover:underline cursor-pointer">Screen Reader Access</span>
+                    <div className="hidden md:flex items-center gap-3 border-r border-gray-400 pr-3">
+                        <span className="hover:underline cursor-pointer font-medium">Skip to Main Content</span>
+                        <span className="text-gray-400">|</span>
+                        <span className="hover:underline cursor-pointer font-medium">Screen Reader Access</span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1 bg-gray-700 rounded px-1">
-                            <span className="cursor-pointer hover:text-yellow-400 px-1 font-bold" onClick={() => setFontSize(0.9)}>A-</span>
-                            <span className="cursor-pointer hover:text-yellow-400 px-1 font-bold" onClick={() => setFontSize(1)}>A</span>
-                            <span className="cursor-pointer hover:text-yellow-400 px-1 font-bold" onClick={() => setFontSize(1.1)}>A+</span>
+                        <div className="flex items-center gap-1">
+                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(0.9)}>A-</span>
+                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(1)}>A</span>
+                            <span className="cursor-pointer hover:bg-gray-200 px-1.5 py-0.5 border border-gray-300 rounded font-bold" onClick={() => setFontSize(1.1)}>A+</span>
                         </div>
-                        <div className="flex border border-gray-500 rounded overflow-hidden">
-                            <span className="bg-gray-800 px-2 py-0.5 cursor-pointer hover:bg-gray-700">A</span>
-                            <span className="bg-white text-black px-2 py-0.5 cursor-pointer hover:bg-gray-200">A</span>
+                        <div className="flex border border-gray-400 rounded overflow-hidden">
+                            <span className="bg-black text-white px-2 py-0.5 cursor-pointer text-[10px]">A</span>
+                            <span className="bg-white text-black px-2 py-0.5 cursor-pointer hover:bg-gray-100 text-[10px]">A</span>
                         </div>
                         <div className="flex items-center gap-2 ml-2">
-                            <span className="hover:underline cursor-pointer font-bold">English</span>
-                            <span>|</span>
-                            <span className="hover:underline cursor-pointer">हिन्दी</span>
+                            <span className="hover:underline cursor-pointer font-bold border-r border-gray-400 pr-2">English</span>
+                            <span className="hover:underline cursor-pointer font-medium">हिन्दी</span>
                         </div>
                     </div>
                 </div>
@@ -101,43 +122,94 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <ul className="hidden md:flex flex-wrap">
                         {navLinks.map((link) => (
-                            <li key={link.path} className="group relative">
-                                <Link
-                                    to={link.path}
-                                    className={`inline-block px-5 py-3 text-sm font-medium tracking-wide uppercase transition-colors
-                                        ${isActive(link.path)
-                                            ? 'bg-[#002244] text-yellow-400 border-b-4 border-yellow-400'
-                                            : 'hover:bg-[#004080] text-white border-b-4 border-transparent'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
+                            <li key={link.name} className="group relative h-full">
+                                {link.dropdown ? (
+                                    <>
+                                        <button
+                                            className={`flex items-center gap-1 h-full px-6 py-4 text-sm font-bold tracking-wide uppercase transition-colors 
+                                                ${isActive(link) ? 'bg-[#f39200] text-white' : 'hover:bg-[#005da3] text-white'}`}
+                                        >
+                                            {link.name}
+                                            <ChevronDown size={14} />
+                                        </button>
+                                        <ul className="absolute left-0 top-full w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#f39200] hidden group-hover:block animate-fade-in z-50">
+                                            {link.dropdown.map((dropLink) => (
+                                                <li key={dropLink.path} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                                                    <Link to={dropLink.path} className="block px-4 py-3 text-sm font-semibold hover:text-[#003366]">
+                                                        {dropLink.name}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                ) : (
+                                    <Link
+                                        to={link.path}
+                                        className={`inline-block h-full px-6 py-4 text-sm font-bold tracking-wide uppercase transition-colors
+                                            ${isActive(link)
+                                                ? 'bg-[#f39200] text-white' // Active: Saffron background
+                                                : 'hover:bg-[#005da3] text-white' // Hover: Lighter Blue
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
 
                     {/* Mobile Menu Dropdown */}
-                    <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+                    <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[800px]' : 'max-h-0'}`}>
                         <ul className="flex flex-col py-2">
                             {navLinks.map((link) => (
-                                <li key={link.path}>
-                                    <Link
-                                        to={link.path}
-                                        onClick={() => setIsOpen(false)}
-                                        className={`block px-4 py-3 border-l-4 text-sm font-bold uppercase ${isActive(link.path)
+                                <li key={link.name}>
+                                    {link.dropdown ? (
+                                        <div>
+                                            <button
+                                                onClick={() => toggleMobileDropdown(link.name)}
+                                                className={`w-full flex justify-between items-center px-4 py-3 border-l-4 text-sm font-bold uppercase transition-colors
+                                                    ${isActive(link)
+                                                        ? 'border-yellow-400 bg-blue-800 text-yellow-500'
+                                                        : 'border-transparent hover:bg-blue-800 text-gray-100'}`}
+                                            >
+                                                {link.name}
+                                                <ChevronDown size={16} className={`transform transition-transform ${dropdownOpen === link.name ? 'rotate-180' : ''}`} />
+                                            </button>
+                                            <div className={`bg-[#002244] overflow-hidden transition-all duration-300 ${dropdownOpen === link.name ? 'max-h-40' : 'max-h-0'}`}>
+                                                <ul>
+                                                    {link.dropdown.map((dropLink) => (
+                                                        <li key={dropLink.path}>
+                                                            <Link
+                                                                to={dropLink.path}
+                                                                onClick={() => setIsOpen(false)}
+                                                                className="block pl-8 pr-4 py-3 text-xs font-bold uppercase text-gray-300 hover:text-white border-l-4 border-transparent hover:border-yellow-400"
+                                                            >
+                                                                {dropLink.name}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Link
+                                            to={link.path}
+                                            onClick={() => setIsOpen(false)}
+                                            className={`block px-4 py-3 border-l-4 text-sm font-bold uppercase ${isActive(link)
                                                 ? 'border-yellow-400 bg-blue-800 text-yellow-400'
                                                 : 'border-transparent hover:bg-blue-800 text-gray-100'
-                                            }`}
-                                    >
-                                        {link.name}
-                                    </Link>
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
             </nav>
-        </header>
+        </header >
     );
 };
 

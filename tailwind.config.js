@@ -8,14 +8,15 @@ export default {
     extend: {
       colors: {
         gov: {
-          primary: '#138808', // Saffron/Green mix, going with a solid green for gov
-          secondary: '#000080', // Navy blue
-          accent: '#FF9933', // Saffron
-          bg: '#F9FAFB', // Light gray
+          blue: '#003366',
+          orange: '#f39200',
+          green: '#138808',
+          text: '#1a202c',
+          bg: '#f8fafc',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Roboto', 'sans-serif'],
       },
       animation: {
         marquee: 'marquee 25s linear infinite',

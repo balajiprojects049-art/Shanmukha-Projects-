@@ -8,6 +8,8 @@ import ZEDCertification from './pages/ZEDCertification';
 import Careers from './pages/Careers';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import SarpanchSamvad from './pages/SarpanchSamvad';
+import Conclave2025 from './pages/Conclave2025';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -30,9 +32,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/zed-certification" element={<ZEDCertification />} />
+          <Route path="/sarpanch-samvad" element={<SarpanchSamvad />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/conclave-2025" element={<Conclave2025 />} />
         </Routes>
       </Layout>
     </Router>
