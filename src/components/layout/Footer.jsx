@@ -1,8 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, ChevronRight, Award } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Footer = () => {
+    const { t } = useLanguage();
+
+    const quickLinks = [
+        { name: t('home'), path: '/' },
+        { name: t('about'), path: '/about' },
+        { name: t('services'), path: '/services' },
+        { name: t('careers'), path: '/careers' },
+        { name: t('gallery'), path: '/gallery' },
+        { name: t('contact'), path: '/contact' },
+    ];
+
+    const programLinks = [
+        { name: t('zed'), path: '/zed-certification' },
+        { name: t('sarpanch'), path: '/sarpanch-samvad' },
+        { name: t('conclave'), path: '/conclave-2025' },
+    ];
+
     return (
         <footer className="bg-[#1a5d62] text-white border-t-8 border-[#a5d63f]">
             <div className="max-w-7xl mx-auto px-4 py-12">
@@ -25,24 +43,35 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-[#a5d63f]">Quick Links</h4>
-                        <div className="flex flex-col gap-2">
-                            <Link to="/about" className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium">About Us</Link>
-                            <Link to="/services" className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium">Our Services</Link>
-                            <Link to="/zed-certification" className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium">ZED Certification</Link>
-                            <Link to="/conclave-2025" className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium">National Conclave</Link>
-                            <Link to="/contact" className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium">Support</Link>
+                        <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-[#a5d63f]">{t('home')} & Info</h4>
+                        <div className="flex flex-col gap-3">
+                            {quickLinks.map((link) => (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium flex items-center gap-2 group"
+                                >
+                                    <ChevronRight size={14} className="text-[#a5d63f] group-hover:translate-x-1 transition-transform" />
+                                    {link.name}
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Services */}
+                    {/* Programs */}
                     <div>
-                        <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-[#a5d63f]">Focus Areas</h4>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-gray-200 text-sm font-medium border-l-2 border-white/20 pl-3">MSME Development</span>
-                            <span className="text-gray-200 text-sm font-medium border-l-2 border-white/20 pl-3">Quality Standards</span>
-                            <span className="text-gray-200 text-sm font-medium border-l-2 border-white/20 pl-3">Digital Governance</span>
-                            <span className="text-gray-200 text-sm font-medium border-l-2 border-white/20 pl-3">Village Empowerment</span>
+                        <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-[#a5d63f]">Programs</h4>
+                        <div className="flex flex-col gap-3">
+                            {programLinks.map((link) => (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className="text-gray-200 hover:text-[#a5d63f] transition-colors text-sm font-medium flex items-center gap-2 group"
+                                >
+                                    <ChevronRight size={14} className="text-[#a5d63f] group-hover:translate-x-1 transition-transform" />
+                                    {link.name}
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
