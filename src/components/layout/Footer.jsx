@@ -9,9 +9,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     {/* Brand Section */}
                     <div className="col-span-1 md:col-span-1">
-                        <Link to="/" className="flex items-center gap-2">
-                            <img src="/images/logo.png" alt="Logo" className="h-12 w-auto brightness-0 invert" />
-                            <span className="font-bold text-xl uppercase tracking-tighter">Shanmukha</span>
+                        <Link to="/" className="flex items-center gap-3">
+                            <img src="/images/logo.png" alt="Shanmukha Projects Logo" className="h-14 w-auto drop-shadow-md" />
+                            <span className="font-bold text-xl uppercase tracking-tighter">Shanmukha Projects</span>
                         </Link>
                         <div className="h-1 w-10 bg-[#a5d63f] my-4"></div>
                         <p className="text-gray-200 text-sm leading-relaxed max-w-sm">
