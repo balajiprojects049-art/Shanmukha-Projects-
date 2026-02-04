@@ -89,7 +89,7 @@ const Footer = () => {
                                 <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
                                     <Mail size={16} />
                                 </div>
-                                <span className="text-sm font-bold text-gray-200">contact@shanmukhaprojects.com</span>
+                                <span className="text-sm font-bold text-gray-200">shanmukhaprojects999@gmail.com</span>
                             </div>
                         </div>
                     </div>
