@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, ChevronRight, Award } from 'lucide-react';
+import { Phone, Mail, ChevronRight, Award, Facebook, Youtube, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 const Footer = () => {
@@ -91,6 +91,36 @@ const Footer = () => {
                                 </div>
                                 <span className="text-sm font-bold text-gray-200">shanmukhaprojects999@gmail.com</span>
                             </div>
+                            <a href="https://www.facebook.com/share/1HsRSGjEMu/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
+                                    <Facebook size={16} />
+                                </div>
+                                <span className="text-sm font-bold text-gray-200 group-hover:text-[#a5d63f] transition-colors">Connect on Facebook</span>
+                            </a>
+                            <a href="https://youtube.com/@shanmukhaprojects?si=W6cKrLZ3qJoOa4xa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
+                                    <Youtube size={16} />
+                                </div>
+                                <span className="text-sm font-bold text-gray-200 group-hover:text-[#a5d63f] transition-colors">Subscribe on YouTube</span>
+                            </a>
+                            <a href="https://www.instagram.com/shanmukha_projects999?utm_source=qr&igsh=MXUyMmV0eXBtZnduaw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
+                                    <Instagram size={16} />
+                                </div>
+                                <span className="text-sm font-bold text-gray-200 group-hover:text-[#a5d63f] transition-colors">Follow on Instagram</span>
+                            </a>
+                            <a href="https://x.com/SShanmukha81998" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
+                                    <Twitter size={16} />
+                                </div>
+                                <span className="text-sm font-bold text-gray-200 group-hover:text-[#a5d63f] transition-colors">Follow on X (Twitter)</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/shanmukha-project-s-6446423aa?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
+                                    <Linkedin size={16} />
+                                </div>
+                                <span className="text-sm font-bold text-gray-200 group-hover:text-[#a5d63f] transition-colors">Connect on LinkedIn</span>
+                            </a>
                         </div>
                     </div>
                 </div>
