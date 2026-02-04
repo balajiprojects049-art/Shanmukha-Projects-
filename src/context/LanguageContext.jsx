@@ -20,8 +20,8 @@ export const LanguageProvider = ({ children }) => {
 
             // Hero
             hero_badge: 'Empowering MSMEs in Andhra Pradesh',
-            hero_title: 'Driving Growth with ZED Certification & Government Projects',
-            hero_desc: 'Shanmukha Projects is a trusted partner for MSME ZED Certification (Zero Defect Zero Effect) and government contract execution. We bridge the gap between policy and practice.',
+            hero_title: 'Driving Growth with ZED Certification & Sarpanch Samvaad',
+            hero_desc: 'We are proudly driving the state-wide recruitment of Mandal Coordinators and ZED Facilitators for the ZED Certification and Sarpanch Samvaad initiatives, ensuring impactful implementation and grassroots connectivity.',
             hero_btn_zed: 'ZED Registration',
             hero_btn_contact: 'Contact Us',
 

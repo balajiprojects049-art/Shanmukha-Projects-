@@ -113,9 +113,8 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-between items-center gap-6 opacity-80">
                         <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#45b1b8]" /> Quality Council of India</div>
-                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#138808]" /> MSME ZED</div>
                         <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-[#a5d63f]" /> AZQDC</div>
-                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-blue-600" /> NextGen Global</div>
+                        <div className="font-bold text-lg text-[#45b1b8] flex items-center gap-2"><Award className="text-blue-600" /> NextGen Global Services</div>
                     </div>
                 </div>
             </div>
