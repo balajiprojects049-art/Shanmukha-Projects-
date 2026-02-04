@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Briefcase, MapPin, IndianRupee, Clock, Send, ChevronRight, FileText } from 'lucide-react';
+import DownloadCard from '../components/DownloadCard';
 
 const Careers = () => {
     const [formData, setFormData] = useState({
@@ -248,6 +249,9 @@ const Careers = () => {
 
                 </div>
             </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

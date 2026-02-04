@@ -2,6 +2,7 @@ import React from 'react';
 import { Users, Smartphone, Award, MessagesSquare, Share2, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import DownloadCard from '../components/DownloadCard';
 
 const SarpanchSamvad = () => {
     const { t } = useLanguage();
@@ -138,6 +139,22 @@ const SarpanchSamvad = () => {
                     </Link>
                 </div>
             </div>
+
+            {/* Sarpanch Samvaad Visual Banner */}
+            <div className="bg-white py-16">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-[#45b1b8]">
+                        <img
+                            src="/images/sarpanch-samvaad-banner.jpg"
+                            alt="Sarpanch Samvaad Mobile App - Quality Council of India"
+                            className="w-full h-auto object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

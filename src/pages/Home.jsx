@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import DownloadCard from '../components/DownloadCard';
 
 const Home = () => {
     const { t } = useLanguage();
@@ -177,7 +178,7 @@ const Home = () => {
                             transition={{ duration: 0.8 }}
                             className="bg-gray-200 p-2 rounded-sm"
                         >
-                            <img src="/images/main-poster.jpg" alt="Shanmukha Projects Overview" className="w-full h-auto object-cover border border-gray-300" />
+                            <img src="/images/msme-empowerment.jpg" alt="MSME Empowerment - Government of India Initiative" className="w-full h-auto object-cover border border-gray-300" />
                         </motion.div>
                     </div>
                 </div>
@@ -377,6 +378,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

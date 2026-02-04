@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, ChevronRight, Send } from 'lucide-react';
+import DownloadCard from '../components/DownloadCard';
 
 const Contact = () => {
     const [formData, setFormData] = React.useState({
@@ -220,6 +221,9 @@ const Contact = () => {
 
                 </div>
             </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

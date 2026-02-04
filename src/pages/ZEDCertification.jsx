@@ -2,6 +2,7 @@ import React from 'react';
 import { Check, Award, TrendingUp, Users, ShieldCheck, Globe, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import DownloadCard from '../components/DownloadCard';
 
 const ZEDCertification = () => {
     const { t } = useLanguage();
@@ -166,6 +167,94 @@ const ZEDCertification = () => {
                     </div>
                 </div>
             </div>
+
+            {/* ZED Information Visuals */}
+            <div className="bg-white py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-[#1a202c] uppercase tracking-wide">Understanding ZED Certification</h2>
+                        <div className="w-24 h-1 bg-[#a5d63f] mx-auto mt-4"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        {/* ZED Journey */}
+                        <div className="bg-white rounded-lg shadow-xl overflow-hidden border-4 border-[#45b1b8] hover:shadow-2xl transition-shadow duration-300">
+                            <img
+                                src="/images/zed-journey.jpg"
+                                alt="ZED Journey - Path to Excellence"
+                                className="w-full h-auto object-cover"
+                            />
+                            {/* Added content for white space */}
+                            <div className="p-6 bg-gradient-to-b from-white to-gray-50">
+                                <h3 className="text-xl font-bold text-[#45b1b8] mb-4 text-center">Your Path to ZED Excellence</h3>
+                                <div className="space-y-3">
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Registration</p>
+                                            <p className="text-sm text-gray-600">Sign up on ZED portal with your UDYAM number</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Pledge</p>
+                                            <p className="text-sm text-gray-600">Commit to quality standards and zero defects</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Assessment</p>
+                                            <p className="text-sm text-gray-600">Get evaluated by Quality Council of India</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Gap Analysis & Handholding</p>
+                                            <p className="text-sm text-gray-600">Expert guidance to bridge gaps and improve systems</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">5</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Site Assessment</p>
+                                            <p className="text-sm text-gray-600">On-site verification of processes and safety standards</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">6</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Certification</p>
+                                            <p className="text-sm text-gray-600">Receive ZED Certificate and global recognition</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 bg-[#45b1b8] text-white rounded-full flex items-center justify-center font-bold text-sm">7</span>
+                                        <div>
+                                            <p className="font-bold text-gray-800">Subsidy & Benefits</p>
+                                            <p className="text-sm text-gray-600">Claim 80% subsidy and enjoy low-interest loans</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* ZED Certification Banner */}
+                        <div className="bg-white rounded-lg shadow-xl overflow-hidden border-4 border-[#45b1b8] hover:shadow-2xl transition-shadow duration-300">
+                            <img
+                                src="/images/zed-certification-banner.jpg"
+                                alt="ZED Certification Benefits"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

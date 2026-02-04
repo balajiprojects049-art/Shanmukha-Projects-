@@ -1,4 +1,5 @@
 import React from 'react';
+import DownloadCard from '../components/DownloadCard';
 
 const Gallery = () => {
     const images = [
@@ -60,6 +61,9 @@ const Gallery = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

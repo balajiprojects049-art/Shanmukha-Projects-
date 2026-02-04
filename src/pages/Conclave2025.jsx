@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, MapPin, Users, Award, Mic, Target, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import DownloadCard from '../components/DownloadCard';
 
 const Conclave2025 = () => {
     const { t } = useLanguage();
@@ -134,6 +135,9 @@ const Conclave2025 = () => {
                 </div>
 
             </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };

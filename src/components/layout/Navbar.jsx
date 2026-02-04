@@ -30,9 +30,10 @@ const Navbar = () => {
         { name: t('about'), path: '/about' },
         { name: t('services'), path: '/services' },
         {
-            name: t('zed'),
+            name: 'Our Projects',
             path: '/zed-certification',
             dropdown: [
+                { name: t('zed'), path: '/zed-certification' },
                 { name: t('sarpanch'), path: '/sarpanch-samvad' },
                 { name: t('conclave'), path: '/conclave-2025' }
             ]
@@ -158,13 +159,13 @@ const Navbar = () => {
                                     <div className="flex h-full">
                                         <Link
                                             to={link.path}
-                                            className={`flex items-center gap-1 h-full px-4 py-4 text-sm font-extrabold tracking-wide uppercase transition-colors 
+                                            className={`flex items-center h-full px-4 py-4 text-sm font-extrabold tracking-wide uppercase transition-colors 
                                                 ${isActive(link) ? 'bg-black/20 text-white' : 'hover:bg-black/10 text-white'}`}
                                         >
                                             {link.name}
                                         </Link>
                                         <button
-                                            className={`px-2 py-4 h-full flex items-center transition-colors hover:bg-black/10`}
+                                            className={`px-1 py-4 h-full flex items-center transition-colors hover:bg-black/10`}
                                             aria-label="Toggle Dropdown"
                                         >
                                             <ChevronDown size={14} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Target, Users, ShieldCheck } from 'lucide-react';
+import DownloadCard from '../components/DownloadCard';
 
 const About = () => {
     return (
@@ -92,6 +93,9 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Download Card Section */}
+            <DownloadCard />
         </div>
     );
 };
