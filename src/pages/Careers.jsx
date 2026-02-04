@@ -17,7 +17,23 @@ const Careers = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Application submitted successfully! (Demo)');
+        const { name, phone, email, qualification, district, position } = formData;
+
+        const whatsappMessage =
+            `NEW JOB APPLICATION%0a` +
+            `------------------------%0a` +
+            `Position: ${position}%0a` +
+            `Name: ${name}%0a` +
+            `Phone: ${phone}%0a` +
+            `Email: ${email}%0a` +
+            `Qualification: ${qualification}%0a` +
+            `District: ${district}%0a` +
+            `------------------------`;
+
+        const phoneNumber = '919703908232';
+        const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+        window.open(url, '_blank');
     };
 
     const jobs = [
