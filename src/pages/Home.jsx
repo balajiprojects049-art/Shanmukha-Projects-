@@ -183,6 +183,53 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* ZED Certification Feature Section - Official Box */}
+            <section className="py-16 bg-white border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-white p-8 md:p-10 rounded-sm shadow-md border-t-4 border-[#138808]">
+                        <div className="text-center mb-8">
+                            <span className="text-[#138808] font-black tracking-widest uppercase text-xs">{t('zed_official_badge')}</span>
+                            <h2 className="text-3xl font-bold text-[#1a202c] mt-2">{t('zed_title')}</h2>
+                            <div className="w-16 h-1 bg-[#a5d63f] mx-auto mt-3"></div>
+                        </div>
+
+                        <div className="bg-[#f0fdf4] p-6 rounded-sm border border-green-100 mb-8 text-center">
+                            <h3 className="font-bold text-xl text-[#166534] mb-4">{t('zed_title')} (Zero Defect Zero Effect)</h3>
+                            <p className="text-[#2d3748] leading-relaxed text-lg mb-2">
+                                {t('zed_desc1')}
+                            </p>
+                            <p className="text-[#2d3748] leading-relaxed text-lg">
+                                {t('zed_desc2')}
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div className="text-center p-4">
+                                <Award className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <h4 className="font-bold text-[#2d3748]">Zero Defect</h4>
+                                <p className="text-xs text-gray-500">World-class Quality</p>
+                            </div>
+                            <div className="text-center p-4 border-l border-r border-gray-100">
+                                <CheckCircle className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <h4 className="font-bold text-[#2d3748]">Zero Effect</h4>
+                                <p className="text-xs text-gray-500">Sustainable Growth</p>
+                            </div>
+                            <div className="text-center p-4">
+                                <Award className="text-[#138808] h-8 w-8 mx-auto mb-2" />
+                                <h4 className="font-bold text-[#2d3748]">Incentives</h4>
+                                <p className="text-xs text-gray-500">Govt. Subsidies</p>
+                            </div>
+                        </div>
+
+                        <div className="text-center">
+                            <Link to="/zed-certification" className="inline-block px-8 py-3 text-sm font-black text-white bg-[#138808] hover:bg-[#0f6b06] rounded-sm transition-colors uppercase tracking-widest">
+                                Learn More
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Sarpanch Samvaad Feature Section - Formal Box */}
             <section className="py-16 bg-[#f8fafc] border-y border-gray-200">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
