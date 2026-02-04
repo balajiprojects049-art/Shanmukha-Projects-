@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Award, Users } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const Home = () => {
     const { t } = useLanguage();
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const heroImages = [
+        "/images/hero-slide-1.png",
+        "/images/hero-slide-2.png",
+        "/images/hero-slide-3.png",
+        "/images/hero-slide-4.png",
+        "/images/hero-slide-5.png"
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     const fadeIn = {
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
@@ -39,22 +56,34 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="relative bg-[#003366] text-white overflow-hidden">
-                {/* Standard Govt overlay - no loud gradients */}
-                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center z-0"></div>
+            <section className="relative bg-[#003366] text-white overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center">
+                {/* Slideshow Background */}
+                <div className="absolute inset-0 z-0 bg-black">
+                    <AnimatePresence mode="popLayout">
+                        <motion.div
+                            key={currentImageIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1.5 }}
+                            className="absolute inset-0 bg-cover bg-center"
+                            style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
+                        />
+                    </AnimatePresence>
+                    <div className="absolute inset-0 bg-black/50 z-10" />
+                </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-24">
+                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-24 w-full">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-4xl bg-[#45b1b8]/90 p-5 md:p-8 rounded-sm shadow-lg border-t-4 border-[#a5d63f]"
+                        className="max-w-4xl"
                     >
-                        <div className="inline-block px-2 py-0.5 bg-white text-[#003366] font-bold text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4">
+                        <div className="inline-block px-2 py-0.5 bg-[#a5d63f] text-[#003366] font-bold text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4 rounded-sm">
                             {t('hero_badge')}
                         </div>
-                        <h1 className="text-2xl md:text-5xl font-bold leading-tight mb-3 md:mb-4">
+                        <h1 className="text-2xl md:text-5xl font-bold leading-tight mb-3 md:mb-4 drop-shadow-lg">
                             {t('hero_title').split('ZED Certification').map((part, i, arr) => (
                                 <React.Fragment key={i}>
                                     {part}
@@ -62,7 +91,7 @@ const Home = () => {
                                 </React.Fragment>
                             ))}
                         </h1>
-                        <p className="text-sm md:text-lg text-gray-100 mb-6 md:mb-8 leading-relaxed border-l-4 border-[#a5d63f] pl-3 md:pl-4">
+                        <p className="text-sm md:text-lg text-gray-100 mb-6 md:mb-8 leading-relaxed border-l-4 border-[#a5d63f] pl-3 md:pl-4 drop-shadow-md">
                             {t('hero_desc')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
@@ -70,7 +99,7 @@ const Home = () => {
                                 {t('hero_btn_zed')}
                                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                             </Link>
-                            <Link to="/contact" className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-bold text-[#45b1b8] bg-white hover:bg-gray-100 border border-white transition-colors rounded-sm">
+                            <Link to="/contact" className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-bold text-white border-2 border-white hover:bg-white hover:text-[#003366] transition-colors rounded-sm">
                                 {t('hero_btn_contact')}
                             </Link>
                         </div>

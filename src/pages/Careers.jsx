@@ -32,12 +32,12 @@ const Careers = () => {
             age: "21 – 35 Years"
         },
         {
-            title: "District Coordinator",
+            title: "Mandal Coordinator",
             service: "Sarpanch Samvaad App",
-            location: "Andhra Pradesh (District Level)",
+            location: "Andhra Pradesh (Mandal Level)",
             salary: "₹25,000 – ₹30,000 / month",
             type: "Contractual",
-            desc: "Coordinate with Sarpanchs, ensure app adoption, and manage data collection at the district level.",
+            desc: "Coordinate with Sarpanchs, ensure app adoption, and manage data collection at the mandal level.",
             eligibility: "Any Degree. Experience in field work is a plus.",
             age: "21 – 35 Years"
         }
@@ -148,7 +148,7 @@ const Careers = () => {
                                         className="w-full px-5 py-4 border-2 border-gray-50 focus:border-[#45b1b8] outline-none transition-all bg-gray-50 font-bold appearance-none rounded-sm"
                                     >
                                         <option value="ZED Facilitator">ZED Facilitator</option>
-                                        <option value="District Coordinator">District Coordinator</option>
+                                        <option value="Mandal Coordinator">Mandal Coordinator</option>
                                     </select>
                                 </div>
 
