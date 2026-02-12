@@ -29,7 +29,7 @@ const Contact = () => {
             `Message: ${message}%0a` +
             `------------------------`;
 
-        const phoneNumber = '919703908232';
+        const phoneNumber = '919030327779';
         const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
         window.open(url, '_blank');
@@ -78,7 +78,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-black text-[#1a5d62] mb-2 uppercase tracking-widest text-xs">Phone</h3>
-                                        <p className="text-gray-900 font-black text-2xl tracking-tighter">+91 97039 08232</p>
+                                        <p className="text-gray-900 font-black text-2xl tracking-tighter">+91 90303 27779</p>
                                         <p className="text-gray-500 text-xs mt-1 font-bold uppercase tracking-widest">(Mon-Sat, 9 AM - 6 PM)</p>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@ const Contact = () => {
                                     </div>
                                 </div>
 
-                                <a href="https://wa.me/919703908232" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group cursor-pointer">
+                                <a href="https://wa.me/919030327779" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group cursor-pointer">
                                     <div className="bg-[#25D366] p-4 rounded-full text-white shadow-md group-hover:scale-110 transition-transform">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-black text-[#1a5d62] mb-2 uppercase tracking-widest text-xs">WhatsApp</h3>
-                                        <p className="text-gray-700 font-bold text-lg group-hover:text-[#25D366] transition-colors">+91 97039 08232</p>
+                                        <p className="text-gray-700 font-bold text-lg group-hover:text-[#25D366] transition-colors">+91 90303 27779</p>
                                     </div>
                                 </a>
                             </div>

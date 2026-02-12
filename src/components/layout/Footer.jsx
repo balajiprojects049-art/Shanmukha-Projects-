@@ -83,7 +83,7 @@ const Footer = () => {
                                 <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">
                                     <Phone size={16} />
                                 </div>
-                                <span className="text-sm font-bold text-gray-200">+91 97039 08232</span>
+                                <span className="text-sm font-bold text-gray-200">+91 90303 27779</span>
                             </div>
                             <div className="flex items-center gap-3 group">
                                 <div className="p-2 bg-white/10 group-hover:bg-[#a5d63f] transition-colors rounded-sm">

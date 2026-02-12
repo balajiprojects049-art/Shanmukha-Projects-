@@ -31,7 +31,7 @@ const Careers = () => {
             `District: ${district}%0a` +
             `------------------------`;
 
-        const phoneNumber = '919703908232';
+        const phoneNumber = '919030327779';
         const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
         window.open(url, '_blank');
